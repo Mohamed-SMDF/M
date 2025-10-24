@@ -1,0 +1,702 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>سهلنهالك - كتب الصف الأول الثانوي 2026</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #1a237e;
+            --secondary: #00b0ff;
+            --accent: #ff4081;
+            --light: #f5f5f5;
+            --dark: #0d1440;
+            --glow: 0 0 10px rgba(0, 176, 255, 0.5);
+            --transition: all 0.3s ease;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Tajawal', 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: var(--light);
+            line-height: 1.5;
+            min-height: 100vh;
+            overflow-x: hidden;
+            padding: 0;
+            font-size: 14px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 100%;
+            margin: 0 auto;
+            padding: 10px;
+        }
+
+        header {
+            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            color: white;
+            padding: 20px 0;
+            text-align: center;
+            border-radius: 0 0 20px 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 20px;
+        }
+
+        .title-box {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 15px;
+            margin: 0 10px 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(5px);
+        }
+
+        .title {
+            font-size: 1.8rem;
+            margin-bottom: 8px;
+            background: linear-gradient(90deg, #ffffff, #a5d8ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            letter-spacing: -1px;
+        }
+
+        .subtitle {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            line-height: 1.4;
+        }
+
+        .glowing-dot {
+            width: 80px;
+            height: 80px;
+            margin: 15px auto;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .dot-outer {
+            width: 60px;
+            height: 60px;
+            border: 2px dashed rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotate 25s linear infinite;
+        }
+
+        .dot-middle {
+            width: 45px;
+            height: 45px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: rotateReverse 20s linear infinite;
+        }
+
+        .dot-inner {
+            width: 30px;
+            height: 30px;
+            border: 2px solid white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            animation: pulse 3s ease-in-out infinite alternate;
+        }
+
+        .dot-center {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            box-shadow: 0 0 15px 5px rgba(255, 255, 255, 0.7);
+            animation: glow 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes rotate {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        @keyframes rotateReverse {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(-360deg); }
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.1); }
+        }
+
+        @keyframes glow {
+            0% { box-shadow: 0 0 10px 3px rgba(255, 255, 255, 0.7); }
+            100% { box-shadow: 0 0 20px 8px rgba(255, 255, 255, 0.9); }
+        }
+
+        .section {
+            margin: 25px 0;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(5px);
+            border-radius: 15px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: var(--transition);
+        }
+
+        .section:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 176, 255, 0.3);
+        }
+
+        .section-title {
+            font-size: 1.3rem;
+            color: var(--secondary);
+            margin-bottom: 15px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            text-align: center;
+            position: relative;
+        }
+
+        .section-title::before, .section-title::after {
+            content: '••';
+            color: var(--accent);
+            margin: 0 10px;
+            font-size: 1rem;
+            letter-spacing: -5px;
+        }
+
+        .book-grid {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .book-item {
+            background: rgba(255, 255, 255, 0.08);
+            padding: 15px;
+            border-radius: 12px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .book-item:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 176, 255, 0.3);
+            border-color: rgba(0, 176, 255, 0.3);
+        }
+
+        .book-info {
+            flex-grow: 1;
+        }
+
+        .book-name {
+            font-weight: 600;
+            color: white;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
+        }
+
+        .book-type {
+            font-size: 0.7rem;
+            color: var(--accent);
+            background: rgba(255, 64, 129, 0.15);
+            padding: 2px 6px;
+            border-radius: 10px;
+            display: inline-block;
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, var(--secondary), #0091ea);
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-weight: 600;
+            font-size: 0.85rem;
+            box-shadow: 0 3px 10px rgba(0, 176, 255, 0.3);
+        }
+
+        .download-btn:hover {
+            transform: scale(1.05);
+            box-shadow: 0 5px 15px rgba(0, 176, 255, 0.5);
+        }
+
+        .qureo-section {
+            background: linear-gradient(135deg, rgba(255, 154, 158, 0.15) 0%, rgba(250, 208, 196, 0.15) 100%);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .qureo-title {
+            font-size: 1.2rem;
+            margin-bottom: 12px;
+            color: var(--light);
+        }
+
+        .qureo-link-container {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 12px;
+            border-radius: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin: 15px 0;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .link-text {
+            font-family: monospace;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+            direction: ltr;
+            padding: 8px;
+            background: rgba(0, 0, 0, 0.2);
+            border-radius: 5px;
+        }
+
+        .link-buttons {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+
+        .link-btn {
+            padding: 8px 15px;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.85rem;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, var(--secondary), #0091ea);
+            color: white;
+        }
+
+        .go-btn {
+            background: linear-gradient(135deg, var(--accent), #f50057);
+            color: white;
+        }
+
+        .link-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+        }
+
+        footer {
+            background: rgba(13, 20, 64, 0.9);
+            color: white;
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 30px;
+            border-radius: 15px 15px 0 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .footer-text {
+            margin-bottom: 8px;
+            font-size: 0.95rem;
+        }
+
+        .copyright {
+            font-size: 0.8rem;
+            opacity: 0.8;
+        }
+
+        @media (min-width: 480px) {
+            .container {
+                width: 95%;
+                max-width: 100%;
+            }
+            
+            .book-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .qureo-link-container {
+                flex-direction: row;
+                align-items: center;
+            }
+            
+            .link-text {
+                text-align: left;
+            }
+        }
+
+        @media (min-width: 768px) {
+            .container {
+                width: 90%;
+                max-width: 1200px;
+            }
+            
+            .book-grid {
+                grid-template-columns: repeat(3, 1fr);
+            }
+            
+            .title {
+                font-size: 2rem;
+            }
+        }
+
+        ::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: rgba(255, 255, 255, 0.05);
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: var(--secondary);
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: var(--accent);
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <div class="title-box">
+                <h1 class="title">♕..«سـهــــــلنهــالـك»..♕</h1>
+                <p class="subtitle">هذا الموقع متطور لزملائنا لمساعدتهم علي تنزيل الكتب الدراسيه في الهاتف او التبلت الدراسي... للصف الاول الثانوي 2026... نحن زملائكم ادعو لنا بالتوفيق جميعا... هنا هتلاقي كل الكتب الخارجيه أمتحان وأضواء ومعاصر وغيرها.. والكتب المدرسيه للدراسه 😉</p>
+            </div>
+            
+            <div class="glowing-dot">
+                <div class="dot-outer">
+                    <div class="dot-middle">
+                        <div class="dot-inner">
+                            <div class="dot-center"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="container">
+        <section class="section">
+            <h2 class="section-title">الكتب المدرسية</h2>
+            <div class="book-grid">
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة العربية</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('arabic')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الأجنبية الأولى</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('english')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب الرياضيات</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('math')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب التاريخ</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('history')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب الفلسفة والمنطق</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('philosophy')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب العلوم المتكاملة</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('science')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية فرنساوي</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('french')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية الماني</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('german')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب البرمجة والذكاء الاصطناعي</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('programming')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب التربية الدينية الإسلامية</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('islamic')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب التربية الدينية المسيحية</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('christian')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">كتب خارجية (الأمتحان)</h2>
+            <div class="book-grid">
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة العربية</div>
+                        <div class="book-type">الأمتحان</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('arabic-exam')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب التاريخ</div>
+                        <div class="book-type">الأمتحان</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('history-exam')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب الفلسفة والمنطق</div>
+                        <div class="book-type">الأمتحان</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('philosophy-exam')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب العلوم المتكاملة</div>
+                        <div class="book-type">الأمتحان</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('science-exam')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">كتب خارجية (الأضواء)</h2>
+            <div class="book-grid">
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة العربية</div>
+                        <div class="book-type">الأضواء</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('arabic-lights')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب التاريخ</div>
+                        <div class="book-type">الأضواء</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('history-lights')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب العلوم المتكاملة</div>
+                        <div class="book-type">الأضواء</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('science-lights')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">كتب خارجية (المعاصر)</h2>
+            <div class="book-grid">
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب الرياضيات</div>
+                        <div class="book-type">المعاصر</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('math-modern')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية فرنساوي</div>
+                        <div class="book-type">المعاصر</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('french-modern')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section-title">كتب خارجية بأنواع مختلفة</h2>
+            <div class="book-grid">
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية الماني جلوبال</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('german-global')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية فرنساوي براڤو</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('french-bravo')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية الماني هالو ديوتش</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('german-hallo')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="qureo-section">
+            <h2 class="qureo-title">منصة كيريو اليابانية</h2>
+            <div class="qureo-link-container">
+                <div class="link-text">https://me-portal.qureo.education</div>
+                <div class="link-buttons">
+                    <button class="link-btn copy-btn" onclick="copyLink()"><i class="fas fa-copy"></i> نسخ</button>
+                    <button class="link-btn go-btn" onclick="goToLink()"><i class="fas fa-external-link-alt"></i> الدخول</button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p class="footer-text">ادعو لنا جميعا بالتوفيق والنجاح ونتمني نكون أسعدناكم</p>
+            <p class="copyright">حقوق التطوير © 2026  - Mohamed Abu AlSaud & Mohamed Ali</p>
+        </div>
+    </footer>
+
+    <script>
+        const bookUrls = {
+            'arabic': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/arabic_1sec_t1.pdf',
+            'english': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/English_1sec_t1.pdf',
+            'math': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/Mathematics_AR_Tr1_Secondary-1.pdf',
+            'history': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/History_Sec1_Tr1.pdf',
+            'philosophy': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/Philosophy_and_Logic_Tr1_1sec.pdf',
+            'science': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/integratedscience_ARABIC_1_Secondary_TR1.pdf',
+            'french': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/French2_Sec1_tr1_w1.pdf',
+            'german': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/Deutsch_language_Secondary1_TR1_W1.pdf',
+            'programming': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/ICT_Ar_Sec1_T1.pdf',
+            'islamic': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/Islamic_Religious_Education_Sec1_Tr1.pdf',
+            'christian': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/Christian_Religious_Education_Sec1_Tr1.pdf',
+            'arabic-exam': 'https://www.mediafire.com/file/3cjuxxgli1jzbba/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'history-exam': 'https://www.mediafire.com/file/t3ktnf71dxuhj78/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'philosophy-exam': 'https://www.mediafire.com/file/rds7dvmesvsjun5/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2581%25D9%2584%25D8%25B3%25D9%2581%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A-2.pdf/file',
+            'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+            'arabic-lights': 'https://www.mediafire.com/file/ckqfwkc0rbskd21/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%2580%25D8%25A8%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%2580%25D8%25A7%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A9_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file'
+        };
+
+        function downloadBook(bookId) {
+            const url = bookUrls[bookId];
+            if (url) {
+                window.open(url, '_blank');
+            } else {
+                showNotification("الرابط غير متوفر حالياً");
+            }
+        }
+
+        function copyLink() {
+            const link = "https://me-portal.qureo.education";
+            navigator.clipboard.writeText(link).then(() => {
+                showNotification("تم نسخ الرابط بنجاح!");
+            });
+        }
+
+        function goToLink() {
+            window.open("https://me-portal.qureo.education", "_blank");
+        }
+
+        function showNotification(message) {
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                right: 20px;
+                background: linear-gradient(135deg, var(--secondary), var(--accent));
+                color: white;
+                padding: 12px 20px;
+                border-radius: 8px;
+                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                z-index: 1000;
+                font-weight: 600;
+                transform: translateX(150%);
+                transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                font-size: 0.9rem;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(0)';
+            }, 100);
+            
+            setTimeout(() => {
+                notification.style.transform = 'translateX(150%)';
+                setTimeout(() => {
+                    document.body.removeChild(notification);
+                }, 400);
+            }, 3000);
+        }
+
+        document.addEventListener('DOMContentLoaded', function() {
+            setTimeout(() => {
+                document.querySelector('header').style.opacity = '1';
+            }, 100);
+        });
+    </script>
+</body>
+  </html>
