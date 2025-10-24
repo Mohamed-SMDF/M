@@ -12,8 +12,11 @@
             --accent: #ff4081;
             --light: #f5f5f5;
             --dark: #0d1440;
-            --glow: 0 0 10px rgba(0, 176, 255, 0.5);
+            --glow: 0 0 20px rgba(0, 176, 255, 0.7);
             --transition: all 0.3s ease;
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-purple: #bf00ff;
         }
 
         * {
@@ -31,6 +34,73 @@
             overflow-x: hidden;
             padding: 0;
             font-size: 14px;
+            position: relative;
+        }
+
+        /* Floating Background Elements */
+        .floating-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            overflow: hidden;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: float 20s infinite linear;
+            opacity: 0.5;
+        }
+
+        .floating-element:nth-child(1) {
+            width: 200px;
+            height: 200px;
+            top: 10%;
+            left: 10%;
+            animation-duration: 25s;
+            background: radial-gradient(circle, rgba(0, 176, 255, 0.1) 0%, rgba(0, 176, 255, 0) 70%);
+        }
+
+        .floating-element:nth-child(2) {
+            width: 300px;
+            height: 300px;
+            top: 60%;
+            right: 5%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+            background: radial-gradient(circle, rgba(255, 64, 129, 0.1) 0%, rgba(255, 64, 129, 0) 70%);
+        }
+
+        .floating-element:nth-child(3) {
+            width: 150px;
+            height: 150px;
+            bottom: 10%;
+            left: 20%;
+            animation-duration: 20s;
+            animation-delay: -10s;
+            background: radial-gradient(circle, rgba(191, 0, 255, 0.1) 0%, rgba(191, 0, 255, 0) 70%);
+        }
+
+        @keyframes float {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 30px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-10px, 50px) rotate(180deg);
+            }
+            75% {
+                transform: translate(30px, -20px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
         }
 
         .container {
@@ -46,10 +116,25 @@
             padding: 20px 0;
             text-align: center;
             border-radius: 0 0 20px 20px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5), var(--glow);
             position: relative;
             overflow: hidden;
             margin-bottom: 20px;
+            transform-style: preserve-3d;
+            perspective: 1000px;
+        }
+
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            z-index: -1;
         }
 
         .title-box {
@@ -58,17 +143,44 @@
             border-radius: 15px;
             padding: 15px;
             margin: 0 10px 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
-            backdrop-filter: blur(5px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            transform: translateZ(20px);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .title-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
+            transform: rotate(45deg);
+            animation: shine 5s infinite linear;
+        }
+
+        @keyframes shine {
+            0% {
+                transform: translateX(-100%) translateY(-100%) rotate(45deg);
+            }
+            100% {
+                transform: translateX(100%) translateY(100%) rotate(45deg);
+            }
         }
 
         .title {
             font-size: 1.8rem;
             margin-bottom: 8px;
-            background: linear-gradient(90deg, #ffffff, #a5d8ff);
+            background: linear-gradient(90deg, #ffffff, #a5d8ff, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
+            text-shadow: 0 0 10px rgba(165, 216, 255, 0.5);
+            position: relative;
         }
 
         .subtitle {
@@ -96,6 +208,7 @@
             justify-content: center;
             align-items: center;
             animation: rotate 25s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 176, 255, 0.3);
         }
 
         .dot-middle {
@@ -107,6 +220,7 @@
             justify-content: center;
             align-items: center;
             animation: rotateReverse 20s linear infinite;
+            box-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
         }
 
         .dot-inner {
@@ -118,6 +232,7 @@
             justify-content: center;
             align-items: center;
             animation: pulse 3s ease-in-out infinite alternate;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
         }
 
         .dot-center {
@@ -140,8 +255,8 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.1); }
+            0% { transform: scale(1); box-shadow: 0 0 10px rgba(255, 255, 255, 0.5); }
+            100% { transform: scale(1.1); box-shadow: 0 0 20px rgba(255, 255, 255, 0.8); }
         }
 
         @keyframes glow {
@@ -153,16 +268,38 @@
             margin: 25px 0;
             padding: 15px;
             background: rgba(255, 255, 255, 0.05);
-            backdrop-filter: blur(5px);
+            backdrop-filter: blur(10px);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.5s ease;
         }
 
         .section:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 176, 255, 0.3);
+            transform: translateY(-10px) translateZ(10px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 176, 255, 0.5);
+            border-color: rgba(0, 176, 255, 0.3);
+        }
+
+        .section:hover::before {
+            transform: scaleX(1);
         }
 
         .section-title {
@@ -173,6 +310,7 @@
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
             position: relative;
+            text-shadow: 0 0 10px rgba(0, 176, 255, 0.5);
         }
 
         .section-title::before, .section-title::after {
@@ -181,6 +319,7 @@
             margin: 0 10px;
             font-size: 1rem;
             letter-spacing: -5px;
+            text-shadow: 0 0 5px rgba(255, 64, 129, 0.5);
         }
 
         .book-grid {
@@ -199,16 +338,36 @@
             align-items: center;
             transition: var(--transition);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+        }
+
+        .book-item::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
         }
 
         .book-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), 0 0 10px rgba(0, 176, 255, 0.3);
+            transform: translateY(-5px) translateZ(5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3), 0 0 15px rgba(0, 176, 255, 0.4);
             border-color: rgba(0, 176, 255, 0.3);
+        }
+
+        .book-item:hover::before {
+            left: 100%;
         }
 
         .book-info {
             flex-grow: 1;
+            position: relative;
+            z-index: 1;
         }
 
         .book-name {
@@ -216,6 +375,7 @@
             color: white;
             font-size: 0.95rem;
             margin-bottom: 5px;
+            text-shadow: 0 0 5px rgba(255, 255, 255, 0.3);
         }
 
         .book-type {
@@ -225,6 +385,7 @@
             padding: 2px 6px;
             border-radius: 10px;
             display: inline-block;
+            box-shadow: 0 0 5px rgba(255, 64, 129, 0.3);
         }
 
         .download-btn {
@@ -240,12 +401,31 @@
             gap: 5px;
             font-weight: 600;
             font-size: 0.85rem;
-            box-shadow: 0 3px 10px rgba(0, 176, 255, 0.3);
+            box-shadow: 0 5px 15px rgba(0, 176, 255, 0.4);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+
+        .download-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+            z-index: -1;
         }
 
         .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(0, 176, 255, 0.5);
+            transform: scale(1.05) translateZ(5px);
+            box-shadow: 0 8px 20px rgba(0, 176, 255, 0.6);
+        }
+
+        .download-btn:hover::before {
+            left: 100%;
         }
 
         .qureo-section {
@@ -254,14 +434,41 @@
             border-radius: 15px;
             text-align: center;
             margin: 30px 0;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
+            transform-style: preserve-3d;
+            transform: translateZ(0);
+            transition: var(--transition);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .qureo-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
+            transform: translateX(-100%);
+            transition: transform 0.6s ease;
+        }
+
+        .qureo-section:hover {
+            transform: translateY(-5px) translateZ(5px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4), 0 0 20px rgba(255, 154, 158, 0.3);
+        }
+
+        .qureo-section:hover::before {
+            transform: translateX(100%);
         }
 
         .qureo-title {
             font-size: 1.2rem;
             margin-bottom: 12px;
             color: var(--light);
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.3);
         }
 
         .qureo-link-container {
@@ -272,8 +479,9 @@
             flex-direction: column;
             gap: 12px;
             margin: 15px 0;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.2);
+            backdrop-filter: blur(5px);
         }
 
         .link-text {
@@ -286,6 +494,7 @@
             padding: 8px;
             background: rgba(0, 0, 0, 0.2);
             border-radius: 5px;
+            box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.3);
         }
 
         .link-buttons {
@@ -305,6 +514,20 @@
             align-items: center;
             gap: 5px;
             font-size: 0.85rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .link-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
         }
 
         .copy-btn {
@@ -318,8 +541,12 @@
         }
 
         .link-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+            transform: translateY(-3px) translateZ(3px);
+            box-shadow: 0 7px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .link-btn:hover::before {
+            left: 100%;
         }
 
         footer {
@@ -330,6 +557,9 @@
             margin-top: 30px;
             border-radius: 15px 15px 0 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 -5px 20px rgba(0, 0, 0, 0.3);
+            position: relative;
         }
 
         .footer-text {
@@ -342,6 +572,52 @@
             opacity: 0.8;
         }
 
+        .particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -2;
+        }
+
+        /* 3D Card Effect */
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        /* Neon Glow Effect */
+        .neon-text {
+            text-shadow: 
+                0 0 5px currentColor,
+                0 0 10px currentColor,
+                0 0 20px currentColor,
+                0 0 40px currentColor;
+        }
+
+        /* Pulse Animation */
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 5px rgba(0, 176, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 20px rgba(0, 176, 255, 0.8), 0 0 30px rgba(0, 176, 255, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 5px rgba(0, 176, 255, 0.5);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+
+        /* Media Queries */
         @media (min-width: 480px) {
             .container {
                 width: 95%;
@@ -377,28 +653,76 @@
             }
         }
 
+        /* Scrollbar Styling */
         ::-webkit-scrollbar {
-            width: 6px;
+            width: 8px;
         }
 
         ::-webkit-scrollbar-track {
             background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb {
-            background: var(--secondary);
+            background: linear-gradient(to bottom, var(--secondary), var(--accent));
             border-radius: 10px;
         }
 
         ::-webkit-scrollbar-thumb:hover {
-            background: var(--accent);
+            background: linear-gradient(to bottom, var(--accent), var(--secondary));
+        }
+
+        /* Loading Animation */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-spinner {
+            width: 80px;
+            height: 80px;
+            border: 5px solid rgba(255, 255, 255, 0.1);
+            border-top: 5px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 20px rgba(0, 176, 255, 0.5);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
     </style>
 </head>
 <body>
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="floating-bg">
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+        <div class="floating-element"></div>
+    </div>
+
     <header>
+        <div class="header-bg"></div>
         <div class="container">
-            <div class="title-box">
+            <div class="title-box card-3d">
                 <h1 class="title">♕..«سـهــــــلنهــالـك»..♕</h1>
                 <p class="subtitle">هذا الموقع متطور لزملائنا لمساعدتهم علي تنزيل الكتب الدراسيه في الهاتف او التبلت الدراسي... للصف الاول الثانوي 2026... نحن زملائكم ادعو لنا بالتوفيق جميعا... هنا هتلاقي كل الكتب الخارجيه أمتحان وأضواء ومعاصر وغيرها.. والكتب المدرسيه للدراسه 😉</p>
             </div>
@@ -416,7 +740,7 @@
     </header>
 
     <main class="container">
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">الكتب المدرسية</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -488,7 +812,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">كتب خارجية (الأمتحان)</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -522,7 +846,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">كتب خارجية (الأضواء)</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -549,7 +873,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">كتب خارجية (المعاصر)</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -569,7 +893,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">كتب خارجية بأنواع مختلفة</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -593,7 +917,7 @@
             </div>
         </section>
 
-        <section class="qureo-section">
+        <section class="qureo-section card-3d">
             <h2 class="qureo-title">منصة كيريو اليابانية</h2>
             <div class="qureo-link-container">
                 <div class="link-text">https://me-portal.qureo.education/login</div>
@@ -613,19 +937,26 @@
     </footer>
 
     <script>
+        // Hide loading screen
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loading').classList.add('hidden');
+            }, 1000);
+        });
+
         const bookUrls = {  
-  'arabic': 'https://www.mediafire.com/file/poqp5qsjyvaysso/arabic_1sec_t1.pdf/file',  
-  'english': 'https://www.mediafire.com/file/eh6x13z1qv7pqmb/English_1sec_t1.pdf/file',  
-  'math': 'https://www.mediafire.com/file/z2t9z9bei4suuun/Mathematics_AR_Tr1_Secondary.pdf/file',  
-  'history': 'https://www.mediafire.com/file/6n0g643avow42nu/History_Sec1_Tr1.pdf/file',  
-  'philosophy': 'https://www.mediafire.com/file/qa35kbyyttk0d63/Philosophy_and_Logic_Tr1_1sec.pdf/file',  
-  'science': 'https://www.mediafire.com/file/mb2bib9jajc2s5x/integratedscience_ARABIC_1_Secondary_TR1.pdf/file',  
-  'french': 'https://www.mediafire.com/file/vabqby13trh7n1w/French2_Sec1_tr1_w1.pdf/file',  
-  'german': 'https://www.mediafire.com/file/3rlvvxmlyqj4mez/Deutsch_language_Secondary1_TR1_W1.pdf/file',  
-  'programming': 'https://www.mediafire.com/file/vg2wsoky8ssuoz8/ICT_Ar_Sec1_T1.pdf/file',  
-  'islamic': 'https://www.mediafire.com/file/1ktp2y8k1jevbl7/Islamic_Religious_Education_Sec1_Tr1.pdf/file',  
-  'christian': 'https://www.mediafire.com/file/cnj5vki5j7agaon/Christian_Religious_Education_Sec1_Tr1.pdf/file'  
-           'arabic-exam': 'https://www.mediafire.com/file/3cjuxxgli1jzbba/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'arabic': 'https://www.mediafire.com/file/poqp5qsjyvaysso/arabic_1sec_t1.pdf/file',  
+            'english': 'https://www.mediafire.com/file/eh6x13z1qv7pqmb/English_1sec_t1.pdf/file',  
+            'math': 'https://www.mediafire.com/file/z2t9z9bei4suuun/Mathematics_AR_Tr1_Secondary.pdf/file',  
+            'history': 'https://www.mediafire.com/file/6n0g643avow42nu/History_Sec1_Tr1.pdf/file',  
+            'philosophy': 'https://www.mediafire.com/file/qa35kbyyttk0d63/Philosophy_and_Logic_Tr1_1sec.pdf/file',  
+            'science': 'https://www.mediafire.com/file/mb2bib9jajc2s5x/integratedscience_ARABIC_1_Secondary_TR1.pdf/file',  
+            'french': 'https://www.mediafire.com/file/vabqby13trh7n1w/French2_Sec1_tr1_w1.pdf/file',  
+            'german': 'https://www.mediafire.com/file/3rlvvxmlyqj4mez/Deutsch_language_Secondary1_TR1_W1.pdf/file',  
+            'programming': 'https://www.mediafire.com/file/vg2wsoky8ssuoz8/ICT_Ar_Sec1_T1.pdf/file',  
+            'islamic': 'https://www.mediafire.com/file/1ktp2y8k1jevbl7/Islamic_Religious_Education_Sec1_Tr1.pdf/file',  
+            'christian': 'https://www.mediafire.com/file/cnj5vki5j7agaon/Christian_Religious_Education_Sec1_Tr1.pdf/file',
+            'arabic-exam': 'https://www.mediafire.com/file/3cjuxxgli1jzbba/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'history-exam': 'https://www.mediafire.com/file/t3ktnf71dxuhj78/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'philosophy-exam': 'https://www.mediafire.com/file/rds7dvmesvsjun5/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2581%25D9%2584%25D8%25B3%25D9%2581%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A-2.pdf/file',
             'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
@@ -642,7 +973,17 @@
         function downloadBook(bookId) {
             const url = bookUrls[bookId];
             if (url) {
-                window.open(url, '_blank');
+                // Add visual feedback
+                const button = event.target.closest('.download-btn');
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحميل';
+                button.disabled = true;
+                
+                setTimeout(() => {
+                    window.open(url, '_blank');
+                    button.innerHTML = originalText;
+                    button.disabled = false;
+                }, 1000);
             } else {
                 showNotification("الرابط غير متوفر حالياً");
             }
@@ -670,12 +1011,14 @@
                 color: white;
                 padding: 12px 20px;
                 border-radius: 8px;
-                box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+                box-shadow: 0 5px 25px rgba(0,0,0,0.4), 0 0 15px rgba(0, 176, 255, 0.5);
                 z-index: 1000;
                 font-weight: 600;
                 transform: translateX(150%);
                 transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
                 font-size: 0.9rem;
+                backdrop-filter: blur(10px);
+                border: 1px solid rgba(255,255,255,0.2);
             `;
             
             document.body.appendChild(notification);
@@ -692,11 +1035,46 @@
             }, 3000);
         }
 
+        // Add parallax effect to floating elements
+        document.addEventListener('mousemove', function(e) {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
+            
+            floatingElements.forEach((element, index) => {
+                const speed = 0.02 + (index * 0.01);
+                const xMove = x * speed * 100;
+                const yMove = y * speed * 100;
+                
+                element.style.transform = `translate(${xMove}px, ${yMove}px)`;
+            });
+        });
+
+        // Add scroll animations
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(() => {
-                document.querySelector('header').style.opacity = '1';
-            }, 100);
+            // Animate elements on scroll
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe all sections
+            document.querySelectorAll('.section').forEach(section => {
+                section.style.opacity = '0';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(section);
+            });
         });
     </script>
 </body>
-  </html>
+                        </html>
