@@ -27,7 +27,11 @@
         }
 
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%), 
+                        url('https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/1761499865410.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
             color: var(--light);
             line-height: 1.5;
             min-height: 100vh;
@@ -111,7 +115,10 @@
         }
 
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--dark) 100%);
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.85) 0%, rgba(13, 20, 64, 0.85) 100%), 
+                        url('https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/1761499720699.jpg');
+            background-size: cover;
+            background-position: center;
             color: white;
             padding: 20px 0;
             text-align: center;
@@ -549,6 +556,80 @@
             left: 100%;
         }
 
+        /* Developer Contact Section */
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 176, 255, 0.1) 0%, rgba(255, 64, 129, 0.1) 100%);
+            padding: 20px;
+            border-radius: 15px;
+            margin: 30px 0;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-input, .form-textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 8px;
+            padding: 10px 15px;
+            color: white;
+            font-size: 0.9rem;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 10px rgba(0, 176, 255, 0.5);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent), #f50057);
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 1rem;
+            box-shadow: 0 5px 15px rgba(255, 64, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-top: 10px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 64, 129, 0.6);
+        }
+
         footer {
             background: rgba(13, 20, 64, 0.9);
             color: white;
@@ -572,13 +653,73 @@
             opacity: 0.8;
         }
 
-        .particles-js {
+        /* Welcome Notification */
+        .welcome-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.5), 0 0 30px rgba(0, 176, 255, 0.5);
+            z-index: 1000;
+            text-align: center;
+            max-width: 90%;
+            width: 400px;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        .welcome-notification.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .welcome-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--secondary);
+            text-shadow: 0 0 15px rgba(0, 176, 255, 0.7);
+        }
+
+        .welcome-title {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: white;
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+        }
+
+        .welcome-text {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .welcome-developer {
+            font-weight: 600;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+        }
+
+        /* Overlay for welcome notification */
+        .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            z-index: -2;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
         }
 
         /* 3D Card Effect */
@@ -711,6 +852,15 @@
 <body>
     <div class="loading">
         <div class="loading-spinner"></div>
+    </div>
+
+    <!-- Welcome Notification -->
+    <div class="overlay" id="welcomeOverlay"></div>
+    <div class="welcome-notification" id="welcomeNotification">
+        <div class="welcome-icon">👋</div>
+        <h2 class="welcome-title">مرحباً بك! 🎉</h2>
+        <p class="welcome-text">بموقع <strong>سهلنهالك</strong>.. نساعدك في رحلتك الدراسية</p>
+        <p class="welcome-developer">المطور: محمد أبو السعود</p>
     </div>
 
     <div class="floating-bg">
@@ -893,8 +1043,9 @@
             </div>
         </section>
 
+        <!-- New Section: Other External Books -->
         <section class="section card-3d">
-            <h2 class="section-title">كتب خارجية بأنواع مختلفة</h2>
+            <h2 class="section-title">كتب خارجية أخرى</h2>
             <div class="book-grid">
                 <div class="book-item">
                     <div class="book-info">
@@ -914,6 +1065,14 @@
                     </div>
                     <button class="download-btn" onclick="downloadBook('german-hallo')"><i class="fas fa-download"></i> تحميل</button>
                 </div>
+                <!-- New Book: GEM English -->
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب GEM للغة الإنجليزية</div>
+                        <div class="book-type">GEM</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('english-gem')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
             </div>
         </section>
 
@@ -927,11 +1086,38 @@
                 </div>
             </div>
         </section>
+
+        <!-- Contact Developer Section -->
+        <section class="section card-3d contact-section">
+            <h2 class="section-title">📩 كتابة رسالة للمطور</h2>
+            <p style="text-align: center; margin-bottom: 20px;">يمكنك طلب نسخة مجانية لكتاب أو التواصل مع المطور</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label class="form-label" for="userName">👤 اسمك</label>
+                    <input type="text" id="userName" class="form-input" placeholder="اكتب اسمك هنا" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="bookName">📚 اسم الكتاب المطلوب</label>
+                    <input type="text" id="bookName" class="form-input" placeholder="اكتب اسم الكتاب الذي تريده">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="message">💬 تفاصيل الرسالة</label>
+                    <textarea id="message" class="form-textarea" placeholder="اكتب تفاصيل طلبك أو رسالتك هنا..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                </button>
+            </form>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p class="footer-text">ادعو لنا جميعا بالتوفيق والنجاح ونتمني نكون أسعدناكم</p>
+            <p class="footer-text">ادعو لنا جميعا بالتوفيق والنجاح ونتمني نكون أسعدناكم 🙏</p>
             <p class="copyright">حقوق التطوير © 2026  - Mohamed Abu AlSaud & Yousef(Hogan)</p>
         </div>
     </footer>
@@ -941,6 +1127,18 @@
         window.addEventListener('load', function() {
             setTimeout(function() {
                 document.querySelector('.loading').classList.add('hidden');
+                
+                // Show welcome notification
+                setTimeout(function() {
+                    document.getElementById('welcomeOverlay').classList.add('active');
+                    document.getElementById('welcomeNotification').classList.add('active');
+                }, 500);
+                
+                // Hide welcome notification after 5 seconds
+                setTimeout(function() {
+                    document.getElementById('welcomeOverlay').classList.remove('active');
+                    document.getElementById('welcomeNotification').classList.remove('active');
+                }, 5000);
             }, 1000);
         });
 
@@ -962,12 +1160,13 @@
             'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
             'arabic-lights': 'https://www.mediafire.com/file/ckqfwkc0rbskd21/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%2580%25D8%25A8%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%2580%25D8%25A7%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A9_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file'
+            'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
+            'english-gem': 'https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/Deutsch_language_Secondary1_TR1_W1.pdf'
         };
 
         function downloadBook(bookId) {
@@ -992,12 +1191,60 @@
         function copyLink() {
             const link = "https://me-portal.qureo.education";
             navigator.clipboard.writeText(link).then(() => {
-                showNotification("تم نسخ الرابط بنجاح!");
+                showNotification("تم نسخ الرابط بنجاح! 📋");
             });
         }
 
         function goToLink() {
             window.open("https://me-portal.qureo.education", "_blank");
+        }
+
+        // Telegram Bot Integration
+        const telegramBotToken = '7143459580:AAG81E34PXKvD0mZULQfTMN9DFkg4HnfDo8';
+        const telegramChatId = '7860990853';
+
+        // Contact Form Submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const userName = document.getElementById('userName').value;
+            const bookName = document.getElementById('bookName').value;
+            const message = document.getElementById('message').value;
+            
+            // Send to Telegram
+            sendToTelegram(userName, bookName, message);
+            
+            // Show success notification
+            showNotification("شكراً! 🙏 تم إرسال رسالتك للمطور: محمد أبو السعود");
+            
+            // Reset form
+            document.getElementById('contactForm').reset();
+        });
+
+        function sendToTelegram(userName, bookName, message) {
+            const text = `رسالة جديدة من موقع سهلنهالك 👨‍💻
+            
+👤 الاسم: ${userName}
+📚 الكتاب المطلوب: ${bookName || 'لم يحدد'}
+💬 الرسالة: ${message}
+            
+🕒 الوقت: ${new Date().toLocaleString('ar-EG')}`;
+
+            const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: telegramChatId,
+                    text: text,
+                    parse_mode: 'HTML'
+                })
+            }).catch(error => {
+                console.error('Error sending to Telegram:', error);
+            });
         }
 
         function showNotification(message) {
@@ -1019,6 +1266,8 @@
                 font-size: 0.9rem;
                 backdrop-filter: blur(10px);
                 border: 1px solid rgba(255,255,255,0.2);
+                text-align: center;
+                max-width: 90%;
             `;
             
             document.body.appendChild(notification);
@@ -1032,7 +1281,7 @@
                 setTimeout(() => {
                     document.body.removeChild(notification);
                 }, 400);
-            }, 3000);
+            }, 4000);
         }
 
         // Add parallax effect to floating elements
