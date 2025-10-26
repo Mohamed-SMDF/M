@@ -14,7 +14,9 @@
             --dark: #0d1440;
             --glow: 0 0 20px rgba(0, 176, 255, 0.7);
             --transition: all 0.3s ease;
-            --header-bg: url('https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/1761499720699-1.jpg');
+            --neon-pink: #ff00ff;
+            --neon-blue: #00ffff;
+            --neon-purple: #bf00ff;
         }
 
         * {
@@ -24,12 +26,12 @@
             font-family: 'Tajawal', 'Segoe UI', sans-serif;
         }
 
-        html {
-            scroll-behavior: smooth;
-        }
-
         body {
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, rgba(15, 23, 42, 0.9) 0%, rgba(30, 41, 59, 0.9) 100%), 
+                        url('https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/1761499865410.png');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
             color: var(--light);
             line-height: 1.5;
             min-height: 100vh;
@@ -37,19 +39,8 @@
             padding: 0;
             font-size: 13px;
             position: relative;
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            perspective: 1000;
         }
 
-        /* Performance Optimizations */
-        .container, header, .section, .book-item, .download-btn {
-            transform: translateZ(0);
-            backface-visibility: hidden;
-            will-change: transform;
-        }
-
-        /* Floating Background Elements */
         .floating-bg {
             position: fixed;
             top: 0;
@@ -58,55 +49,60 @@
             height: 100%;
             z-index: -1;
             overflow: hidden;
-            pointer-events: none;
         }
 
         .floating-element {
             position: absolute;
             border-radius: 50%;
-            background: radial-gradient(circle, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0) 70%);
-            animation: float 25s infinite linear;
-            opacity: 0.4;
+            background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+            animation: float 20s infinite linear;
+            opacity: 0.5;
         }
 
         .floating-element:nth-child(1) {
             width: 150px;
             height: 150px;
-            top: 15%;
+            top: 10%;
             left: 10%;
-            animation-duration: 30s;
+            animation-duration: 25s;
+            background: radial-gradient(circle, rgba(0, 176, 255, 0.1) 0%, rgba(0, 176, 255, 0) 70%);
         }
 
         .floating-element:nth-child(2) {
             width: 200px;
             height: 200px;
-            top: 65%;
-            right: 8%;
-            animation-duration: 35s;
-            animation-delay: -7s;
+            top: 60%;
+            right: 5%;
+            animation-duration: 30s;
+            animation-delay: -5s;
+            background: radial-gradient(circle, rgba(255, 64, 129, 0.1) 0%, rgba(255, 64, 129, 0) 70%);
         }
 
         .floating-element:nth-child(3) {
             width: 120px;
             height: 120px;
-            bottom: 15%;
-            left: 25%;
-            animation-duration: 25s;
-            animation-delay: -12s;
+            bottom: 10%;
+            left: 20%;
+            animation-duration: 20s;
+            animation-delay: -10s;
+            background: radial-gradient(circle, rgba(191, 0, 255, 0.1) 0%, rgba(191, 0, 255, 0) 70%);
         }
 
         @keyframes float {
             0% {
-                transform: translate(0, 0) rotate(0deg) scale(1);
+                transform: translate(0, 0) rotate(0deg);
             }
-            33% {
-                transform: translate(15px, 25px) rotate(120deg) scale(1.05);
+            25% {
+                transform: translate(20px, 30px) rotate(90deg);
             }
-            66% {
-                transform: translate(-10px, 35px) rotate(240deg) scale(0.95);
+            50% {
+                transform: translate(-10px, 50px) rotate(180deg);
+            }
+            75% {
+                transform: translate(30px, -20px) rotate(270deg);
             }
             100% {
-                transform: translate(0, 0) rotate(360deg) scale(1);
+                transform: translate(0, 0) rotate(360deg);
             }
         }
 
@@ -118,34 +114,44 @@
         }
 
         header {
-            background: linear-gradient(rgba(26, 35, 126, 0.85), rgba(13, 20, 64, 0.9)), var(--header-bg);
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.85) 0%, rgba(13, 20, 64, 0.85) 100%), 
+                        url('https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/1761499720699-1.jpg');
             background-size: cover;
             background-position: center;
-            background-attachment: fixed;
             color: white;
             padding: 15px 0;
             text-align: center;
-            border-radius: 0 0 18px 18px;
-            box-shadow: 0 5px 25px rgba(0, 0, 0, 0.5), var(--glow);
+            border-radius: 0 0 15px 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), var(--glow);
             position: relative;
             overflow: hidden;
             margin-bottom: 15px;
-            transition: var(--transition);
+            transform-style: preserve-3d;
+            perspective: 1000px;
         }
 
-        .header-content {
-            position: relative;
-            z-index: 2;
+        .header-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                radial-gradient(circle at 20% 80%, rgba(120, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.3) 0%, transparent 50%),
+                radial-gradient(circle at 40% 40%, rgba(120, 219, 255, 0.2) 0%, transparent 50%);
+            z-index: -1;
         }
 
         .title-box {
-            background: rgba(255, 255, 255, 0.12);
-            border: 1.5px solid rgba(255, 255, 255, 0.25);
-            border-radius: 14px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
             padding: 12px;
             margin: 0 8px 12px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            backdrop-filter: blur(12px);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            backdrop-filter: blur(10px);
+            transform: translateZ(20px);
             transition: var(--transition);
             position: relative;
             overflow: hidden;
@@ -158,9 +164,9 @@
             left: -50%;
             width: 200%;
             height: 200%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.08), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.1), transparent);
             transform: rotate(45deg);
-            animation: shine 6s infinite linear;
+            animation: shine 5s infinite linear;
         }
 
         @keyframes shine {
@@ -178,21 +184,20 @@
             background: linear-gradient(90deg, #ffffff, #a5d8ff, #ffffff);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -0.5px;
-            text-shadow: 0 0 12px rgba(165, 216, 255, 0.6);
+            letter-spacing: -1px;
+            text-shadow: 0 0 10px rgba(165, 216, 255, 0.5);
             position: relative;
-            font-weight: 700;
         }
 
         .subtitle {
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             opacity: 0.9;
-            line-height: 1.3;
+            line-height: 1.4;
         }
 
         .glowing-dot {
-            width: 70px;
-            height: 70px;
+            width: 60px;
+            height: 60px;
             margin: 12px auto;
             position: relative;
             display: flex;
@@ -201,36 +206,39 @@
         }
 
         .dot-outer {
-            width: 50px;
-            height: 50px;
-            border: 1.5px dashed rgba(255, 255, 255, 0.35);
+            width: 45px;
+            height: 45px;
+            border: 2px dashed rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: rotate 30s linear infinite;
+            animation: rotate 25s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 176, 255, 0.3);
         }
 
         .dot-middle {
-            width: 38px;
-            height: 38px;
-            border: 1.5px solid rgba(255, 255, 255, 0.5);
+            width: 35px;
+            height: 35px;
+            border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: rotateReverse 25s linear infinite;
+            animation: rotateReverse 20s linear infinite;
+            box-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
         }
 
         .dot-inner {
             width: 25px;
             height: 25px;
-            border: 1.5px solid white;
+            border: 2px solid white;
             border-radius: 50%;
             display: flex;
             justify-content: center;
             align-items: center;
-            animation: pulse 4s ease-in-out infinite alternate;
+            animation: pulse 3s ease-in-out infinite alternate;
+            box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
 
         .dot-center {
@@ -239,7 +247,7 @@
             background: white;
             border-radius: 50%;
             box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.7);
-            animation: glow 2.5s ease-in-out infinite alternate;
+            animation: glow 2s ease-in-out infinite alternate;
         }
 
         @keyframes rotate {
@@ -253,23 +261,23 @@
         }
 
         @keyframes pulse {
-            0% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 255, 255, 0.4); }
-            100% { transform: scale(1.08); box-shadow: 0 0 16px rgba(255, 255, 255, 0.7); }
+            0% { transform: scale(1); box-shadow: 0 0 8px rgba(255, 255, 255, 0.5); }
+            100% { transform: scale(1.1); box-shadow: 0 0 15px rgba(255, 255, 255, 0.8); }
         }
 
         @keyframes glow {
-            0% { box-shadow: 0 0 8px 2px rgba(255, 255, 255, 0.6); }
-            100% { box-shadow: 0 0 16px 6px rgba(255, 255, 255, 0.9); }
+            0% { box-shadow: 0 0 8px 3px rgba(255, 255, 255, 0.7); }
+            100% { box-shadow: 0 0 15px 6px rgba(255, 255, 255, 0.9); }
         }
 
         .section {
             margin: 20px 0;
             padding: 12px;
-            background: rgba(255, 255, 255, 0.06);
-            backdrop-filter: blur(12px);
-            border-radius: 14px;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
             transform-style: preserve-3d;
             transform: translateZ(0);
@@ -287,13 +295,13 @@
             background: linear-gradient(90deg, var(--secondary), var(--accent));
             transform: scaleX(0);
             transform-origin: left;
-            transition: transform 0.6s ease;
+            transition: transform 0.5s ease;
         }
 
         .section:hover {
-            transform: translateY(-8px) translateZ(8px);
-            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.35), 0 0 18px rgba(0, 176, 255, 0.4);
-            border-color: rgba(0, 176, 255, 0.25);
+            transform: translateY(-8px) translateZ(10px);
+            box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4), 0 0 15px rgba(0, 176, 255, 0.5);
+            border-color: rgba(0, 176, 255, 0.3);
         }
 
         .section:hover::before {
@@ -305,11 +313,10 @@
             color: var(--secondary);
             margin-bottom: 12px;
             padding-bottom: 8px;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
             position: relative;
             text-shadow: 0 0 8px rgba(0, 176, 255, 0.5);
-            font-weight: 600;
         }
 
         .section-title::before, .section-title::after {
@@ -317,7 +324,7 @@
             color: var(--accent);
             margin: 0 8px;
             font-size: 0.9rem;
-            letter-spacing: -4px;
+            letter-spacing: -5px;
             text-shadow: 0 0 4px rgba(255, 64, 129, 0.5);
         }
 
@@ -349,14 +356,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
-            transition: left 0.6s ease;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+            transition: left 0.5s ease;
         }
 
         .book-item:hover {
-            transform: translateY(-4px) translateZ(4px);
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.25), 0 0 12px rgba(0, 176, 255, 0.35);
-            border-color: rgba(0, 176, 255, 0.25);
+            transform: translateY(-4px) translateZ(5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 0 12px rgba(0, 176, 255, 0.4);
+            border-color: rgba(0, 176, 255, 0.3);
         }
 
         .book-item:hover::before {
@@ -374,7 +381,7 @@
             color: white;
             font-size: 0.9rem;
             margin-bottom: 4px;
-            text-shadow: 0 0 4px rgba(255, 255, 255, 0.2);
+            text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
         }
 
         .book-type {
@@ -391,8 +398,8 @@
             background: linear-gradient(135deg, var(--secondary), #0091ea);
             color: white;
             border: none;
-            padding: 7px 10px;
-            border-radius: 7px;
+            padding: 6px 10px;
+            border-radius: 6px;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
@@ -400,7 +407,7 @@
             gap: 4px;
             font-weight: 600;
             font-size: 0.8rem;
-            box-shadow: 0 4px 12px rgba(0, 176, 255, 0.35);
+            box-shadow: 0 4px 12px rgba(0, 176, 255, 0.4);
             position: relative;
             overflow: hidden;
             z-index: 1;
@@ -413,14 +420,14 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transition: left 0.5s ease;
             z-index: -1;
         }
 
         .download-btn:hover {
-            transform: scale(1.04) translateZ(4px);
-            box-shadow: 0 6px 16px rgba(0, 176, 255, 0.5);
+            transform: scale(1.05) translateZ(5px);
+            box-shadow: 0 6px 15px rgba(0, 176, 255, 0.6);
         }
 
         .download-btn:hover::before {
@@ -428,13 +435,13 @@
         }
 
         .qureo-section {
-            background: linear-gradient(135deg, rgba(255, 154, 158, 0.14) 0%, rgba(250, 208, 196, 0.14) 100%);
-            padding: 16px;
-            border-radius: 14px;
+            background: linear-gradient(135deg, rgba(255, 154, 158, 0.15) 0%, rgba(250, 208, 196, 0.15) 100%);
+            padding: 15px;
+            border-radius: 12px;
             text-align: center;
             margin: 25px 0;
-            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.25);
-            border: 1px solid rgba(255, 255, 255, 0.12);
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             transform-style: preserve-3d;
             transform: translateZ(0);
             transition: var(--transition);
@@ -449,14 +456,14 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.04), transparent);
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.05), transparent);
             transform: translateX(-100%);
-            transition: transform 0.7s ease;
+            transition: transform 0.6s ease;
         }
 
         .qureo-section:hover {
-            transform: translateY(-5px) translateZ(5px);
-            box-shadow: 0 10px 22px rgba(0, 0, 0, 0.35), 0 0 18px rgba(255, 154, 158, 0.25);
+            transform: translateY(-4px) translateZ(5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4), 0 0 15px rgba(255, 154, 158, 0.3);
         }
 
         .qureo-section:hover::before {
@@ -467,19 +474,19 @@
             font-size: 1.1rem;
             margin-bottom: 10px;
             color: var(--light);
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.25);
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
         }
 
         .qureo-link-container {
-            background: rgba(255, 255, 255, 0.09);
+            background: rgba(255, 255, 255, 0.1);
             padding: 10px;
-            border-radius: 9px;
+            border-radius: 8px;
             display: flex;
             flex-direction: column;
             gap: 10px;
             margin: 12px 0;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-            border: 1px solid rgba(255, 255, 255, 0.18);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
         }
 
@@ -490,11 +497,10 @@
             white-space: nowrap;
             text-align: center;
             direction: ltr;
-            padding: 7px;
+            padding: 6px;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 5px;
-            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.25);
-            font-size: 0.75rem;
+            border-radius: 4px;
+            box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
         }
 
         .link-buttons {
@@ -504,7 +510,7 @@
         }
 
         .link-btn {
-            padding: 7px 12px;
+            padding: 6px 12px;
             border: none;
             border-radius: 5px;
             cursor: pointer;
@@ -514,7 +520,7 @@
             align-items: center;
             gap: 4px;
             font-size: 0.8rem;
-            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.18);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
         }
@@ -526,7 +532,7 @@
             left: -100%;
             width: 100%;
             height: 100%;
-            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.25), transparent);
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transition: left 0.5s ease;
         }
 
@@ -541,24 +547,97 @@
         }
 
         .link-btn:hover {
-            transform: translateY(-2px) translateZ(2px);
-            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.25);
+            transform: translateY(-2px) translateZ(3px);
+            box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
         }
 
         .link-btn:hover::before {
             left: 100%;
         }
 
+        .contact-section {
+            background: linear-gradient(135deg, rgba(0, 176, 255, 0.1) 0%, rgba(255, 64, 129, 0.1) 100%);
+            padding: 15px;
+            border-radius: 12px;
+            margin: 25px 0;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .contact-form {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 6px;
+        }
+
+        .form-label {
+            font-weight: 600;
+            color: var(--secondary);
+        }
+
+        .form-input, .form-textarea {
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 6px;
+            padding: 8px 12px;
+            color: white;
+            font-size: 0.85rem;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+        }
+
+        .form-input:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 8px rgba(0, 176, 255, 0.5);
+        }
+
+        .form-textarea {
+            min-height: 100px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background: linear-gradient(135deg, var(--accent), #f50057);
+            color: white;
+            border: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 600;
+            font-size: 0.9rem;
+            box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 15px rgba(255, 64, 129, 0.6);
+        }
+
         footer {
             background: rgba(13, 20, 64, 0.9);
             color: white;
             text-align: center;
-            padding: 16px 0;
+            padding: 15px 0;
             margin-top: 25px;
-            border-radius: 14px 14px 0 0;
+            border-radius: 12px 12px 0 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
-            box-shadow: 0 -4px 16px rgba(0, 0, 0, 0.25);
+            box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
             position: relative;
         }
 
@@ -572,64 +651,125 @@
             opacity: 0.8;
         }
 
-        .corner-details {
+        .welcome-notification {
             position: fixed;
-            top: 15px;
-            left: 15px;
-            z-index: 100;
-            display: flex;
-            gap: 8px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.5), 0 0 25px rgba(0, 176, 255, 0.5);
+            z-index: 1000;
+            text-align: center;
+            max-width: 90%;
+            width: 350px;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
         }
 
-        .corner-dot {
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            animation: cornerGlow 3s ease-in-out infinite;
+        .welcome-notification.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
         }
 
-        .corner-dot:nth-child(1) {
-            background: var(--secondary);
-            animation-delay: 0s;
+        .welcome-icon {
+            font-size: 2.5rem;
+            margin-bottom: 12px;
+            color: var(--secondary);
+            text-shadow: 0 0 12px rgba(0, 176, 255, 0.7);
         }
 
-        .corner-dot:nth-child(2) {
-            background: var(--accent);
-            animation-delay: 0.5s;
+        .welcome-title {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            color: white;
+            text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
         }
 
-        .corner-dot:nth-child(3) {
-            background: #ffff00;
-            animation-delay: 1s;
+        .welcome-text {
+            margin-bottom: 12px;
+            line-height: 1.5;
         }
 
-        @keyframes cornerGlow {
-            0%, 100% {
-                opacity: 0.6;
-                transform: scale(1);
-            }
-            50% {
-                opacity: 1;
-                transform: scale(1.2);
-                box-shadow: 0 0 8px currentColor;
-            }
+        .welcome-developer {
+            font-weight: 600;
+            color: var(--accent);
+            text-shadow: 0 0 8px rgba(255, 64, 129, 0.5);
         }
 
-        /* Performance and scroll optimizations */
-        .performance-overlay {
+        .overlay {
             position: fixed;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            pointer-events: none;
-            z-index: 9999;
-            background: transparent;
+            background: rgba(0, 0, 0, 0.7);
+            z-index: 999;
             opacity: 0;
-            transition: opacity 0.2s ease;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
         }
 
-        /* Responsive improvements */
+        .overlay.active {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .card-3d {
+            transform-style: preserve-3d;
+            transition: transform 0.5s ease;
+        }
+
+        .card-3d:hover {
+            transform: rotateY(5deg) rotateX(5deg);
+        }
+
+        .neon-text {
+            text-shadow: 
+                0 0 4px currentColor,
+                0 0 8px currentColor,
+                0 0 15px currentColor,
+                0 0 30px currentColor;
+        }
+
+        @keyframes pulse-glow {
+            0% {
+                box-shadow: 0 0 4px rgba(0, 176, 255, 0.5);
+            }
+            50% {
+                box-shadow: 0 0 15px rgba(0, 176, 255, 0.8), 0 0 25px rgba(0, 176, 255, 0.6);
+            }
+            100% {
+                box-shadow: 0 0 4px rgba(0, 176, 255, 0.5);
+            }
+        }
+
+        .pulse-glow {
+            animation: pulse-glow 2s infinite;
+        }
+
+        .corner-badge {
+            position: fixed;
+            top: 10px;
+            right: 10px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            z-index: 100;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 176, 255, 0.5);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
         @media (min-width: 480px) {
             .container {
                 width: 95%;
@@ -665,7 +805,6 @@
             }
         }
 
-        /* Scrollbar Styling */
         ::-webkit-scrollbar {
             width: 6px;
         }
@@ -684,36 +823,79 @@
             background: linear-gradient(to bottom, var(--accent), var(--secondary));
         }
 
-        /* Loading animation removed for performance */
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--dark);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease, visibility 0.5s ease;
+        }
+
+        .loading.hidden {
+            opacity: 0;
+            visibility: hidden;
+        }
+
+        .loading-spinner {
+            width: 60px;
+            height: 60px;
+            border: 4px solid rgba(255, 255, 255, 0.1);
+            border-top: 4px solid var(--secondary);
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 0 15px rgba(0, 176, 255, 0.5);
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
     </style>
 </head>
 <body>
+    <div class="loading">
+        <div class="loading-spinner"></div>
+    </div>
+
+    <div class="corner-badge">
+        <i class="fas fa-star"></i>
+        موقع رائع
+        <i class="fas fa-star"></i>
+    </div>
+
+    <div class="overlay" id="welcomeOverlay"></div>
+    <div class="welcome-notification" id="welcomeNotification">
+        <div class="welcome-icon">👋</div>
+        <h2 class="welcome-title">مرحباً بك! 🎉</h2>
+        <p class="welcome-text">بموقع <strong>سهلنهالك</strong>.. نساعدك في رحلتك الدراسية</p>
+        <p class="welcome-developer">المطور: محمد أبو السعود</p>
+    </div>
+
     <div class="floating-bg">
         <div class="floating-element"></div>
         <div class="floating-element"></div>
         <div class="floating-element"></div>
     </div>
 
-    <div class="corner-details">
-        <div class="corner-dot"></div>
-        <div class="corner-dot"></div>
-        <div class="corner-dot"></div>
-    </div>
-
     <header>
-        <div class="header-content">
-            <div class="container">
-                <div class="title-box">
-                    <h1 class="title">♕..«سـهــــــلنهــالـك»..♕</h1>
-                    <p class="subtitle">هذا الموقع متطور لزملائنا لمساعدتهم علي تنزيل الكتب الدراسيه في الهاتف او التبلت الدراسي... للصف الاول الثانوي 2026... نحن زملائكم ادعو لنا بالتوفيق جميعا... هنا هتلاقي كل الكتب الخارجيه أمتحان وأضواء ومعاصر وغيرها.. والكتب المدرسيه للدراسه 😉</p>
-                </div>
-                
-                <div class="glowing-dot">
-                    <div class="dot-outer">
-                        <div class="dot-middle">
-                            <div class="dot-inner">
-                                <div class="dot-center"></div>
-                            </div>
+        <div class="header-bg"></div>
+        <div class="container">
+            <div class="title-box card-3d">
+                <h1 class="title">♕..«سـهــــــلنهــالـك»..♕</h1>
+                <p class="subtitle">هذا الموقع متطور لزملائنا لمساعدتهم علي تنزيل الكتب الدراسيه في الهاتف او التبلت الدراسي... للصف الاول الثانوي 2026... نحن زملائكم ادعو لنا بالتوفيق جميعا... هنا هتلاقي كل الكتب الخارجيه أمتحان وأضواء ومعاصر وغيرها.. والكتب المدرسيه للدراسه 😉</p>
+            </div>
+            
+            <div class="glowing-dot">
+                <div class="dot-outer">
+                    <div class="dot-middle">
+                        <div class="dot-inner">
+                            <div class="dot-center"></div>
                         </div>
                     </div>
                 </div>
@@ -722,7 +904,7 @@
     </header>
 
     <main class="container">
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">الكتب المدرسية</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -794,7 +976,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">كتب خارجية (الأمتحان)</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -828,7 +1010,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">كتب خارجية (الأضواء)</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -855,7 +1037,7 @@
             </div>
         </section>
 
-        <section class="section">
+        <section class="section card-3d">
             <h2 class="section-title">كتب خارجية (المعاصر)</h2>
             <div class="book-grid">
                 <div class="book-item">
@@ -875,8 +1057,8 @@
             </div>
         </section>
 
-        <section class="section">
-            <h2 class="section-title">كتب خارجية بأنواع مختلفة</h2>
+        <section class="section card-3d">
+            <h2 class="section-title">كتب خارجية أخرى</h2>
             <div class="book-grid">
                 <div class="book-item">
                     <div class="book-info">
@@ -898,14 +1080,15 @@
                 </div>
                 <div class="book-item">
                     <div class="book-info">
-                        <div class="book-name">كتاب جيم لغة انجليزية - أولى ثانوي</div>
+                        <div class="book-name">كتاب GEM للغة الإنجليزية</div>
+                        <div class="book-type">GEM</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('gym-english')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" onclick="downloadBook('english-gem')"><i class="fas fa-download"></i> تحميل</button>
                 </div>
             </div>
         </section>
 
-        <section class="qureo-section">
+        <section class="qureo-section card-3d">
             <h2 class="qureo-title">منصة كيريو اليابانية</h2>
             <div class="qureo-link-container">
                 <div class="link-text">https://me-portal.qureo.education/login</div>
@@ -915,17 +1098,58 @@
                 </div>
             </div>
         </section>
+
+        <section class="section card-3d contact-section">
+            <h2 class="section-title">📩 كتابة رسالة للمطور</h2>
+            <p style="text-align: center; margin-bottom: 15px;">يمكنك طلب نسخة مجانية لكتاب أو التواصل مع المطور</p>
+            
+            <form class="contact-form" id="contactForm">
+                <div class="form-group">
+                    <label class="form-label" for="userName">👤 اسمك</label>
+                    <input type="text" id="userName" class="form-input" placeholder="اكتب اسمك هنا" required>
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="bookName">📚 اسم الكتاب المطلوب</label>
+                    <input type="text" id="bookName" class="form-input" placeholder="اكتب اسم الكتاب الذي تريده">
+                </div>
+                
+                <div class="form-group">
+                    <label class="form-label" for="message">💬 تفاصيل الرسالة</label>
+                    <textarea id="message" class="form-textarea" placeholder="اكتب تفاصيل طلبك أو رسالتك هنا..." required></textarea>
+                </div>
+                
+                <button type="submit" class="submit-btn">
+                    <i class="fas fa-paper-plane"></i> إرسال الرسالة
+                </button>
+            </form>
+        </section>
     </main>
 
     <footer>
         <div class="container">
-            <p class="footer-text">ادعو لنا جميعا بالتوفيق والنجاح ونتمني نكون أسعدناكم</p>
+            <p class="footer-text">ادعو لنا جميعا بالتوفيق والنجاح ونتمني نكون أسعدناكم 🙏</p>
             <p class="copyright">حقوق التطوير © 2026  - Mohamed Abu AlSaud & Yousef(Hogan)</p>
         </div>
     </footer>
 
     <script>
-        // Optimized book URLs with the new Gym English book
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.querySelector('.loading').classList.add('hidden');
+                
+                setTimeout(function() {
+                    document.getElementById('welcomeOverlay').classList.add('active');
+                    document.getElementById('welcomeNotification').classList.add('active');
+                }, 500);
+                
+                setTimeout(function() {
+                    document.getElementById('welcomeOverlay').classList.remove('active');
+                    document.getElementById('welcomeNotification').classList.remove('active');
+                }, 5000);
+            }, 1000);
+        });
+
         const bookUrls = {  
             'arabic': 'https://www.mediafire.com/file/poqp5qsjyvaysso/arabic_1sec_t1.pdf/file',  
             'english': 'https://www.mediafire.com/file/eh6x13z1qv7pqmb/English_1sec_t1.pdf/file',  
@@ -944,31 +1168,28 @@
             'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
             'arabic-lights': 'https://www.mediafire.com/file/ckqfwkc0rbskd21/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%2580%25D8%25A8%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%2580%25D8%25A7%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A9_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
-            'gym-english': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file'
+            'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
+            'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file'
         };
 
-        // Optimized download function
         function downloadBook(bookId) {
             const url = bookUrls[bookId];
             if (url) {
-                // Visual feedback without heavy operations
                 const button = event.target.closest('.download-btn');
-                const originalHTML = button.innerHTML;
+                const originalText = button.innerHTML;
                 button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحميل';
                 button.disabled = true;
                 
-                // Use setTimeout to allow UI update before download
                 setTimeout(() => {
                     window.open(url, '_blank');
-                    button.innerHTML = originalHTML;
+                    button.innerHTML = originalText;
                     button.disabled = false;
-                }, 300);
+                }, 1000);
             } else {
                 showNotification("الرابط غير متوفر حالياً");
             }
@@ -977,7 +1198,7 @@
         function copyLink() {
             const link = "https://me-portal.qureo.education";
             navigator.clipboard.writeText(link).then(() => {
-                showNotification("تم نسخ الرابط بنجاح!");
+                showNotification("تم نسخ الرابط بنجاح! 📋");
             });
         }
 
@@ -985,64 +1206,101 @@
             window.open("https://me-portal.qureo.education", "_blank");
         }
 
-        // Optimized notification system
-        function showNotification(message) {
-            // Remove existing notifications
-            const existingNotifications = document.querySelectorAll('.notification');
-            existingNotifications.forEach(notification => {
-                notification.remove();
-            });
+        const telegramBotToken = '7143459580:AAG81E34PXKvD0mZULQfTMN9DFkg4HnfDo8';
+        const telegramChatId = '7860990853';
+
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
             
+            const userName = document.getElementById('userName').value;
+            const bookName = document.getElementById('bookName').value;
+            const message = document.getElementById('message').value;
+            
+            sendToTelegram(userName, bookName, message);
+            
+            showNotification("شكراً! 🙏 تم إرسال رسالتك للمطور: محمد أبو السعود");
+            
+            document.getElementById('contactForm').reset();
+        });
+
+        function sendToTelegram(userName, bookName, message) {
+            const text = `رسالة جديدة من موقع سهلنهالك 👨‍💻
+            
+👤 الاسم: ${userName}
+📚 الكتاب المطلوب: ${bookName || 'لم يحدد'}
+💬 الرسالة: ${message}
+            
+🕒 الوقت: ${new Date().toLocaleString('ar-EG')}`;
+
+            const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
+            
+            fetch(url, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    chat_id: telegramChatId,
+                    text: text,
+                    parse_mode: 'HTML'
+                })
+            }).catch(error => {
+                console.error('Error sending to Telegram:', error);
+            });
+        }
+
+        function showNotification(message) {
             const notification = document.createElement('div');
             notification.textContent = message;
-            notification.className = 'notification';
             notification.style.cssText = `
                 position: fixed;
-                top: 20px;
-                right: 20px;
+                top: 15px;
+                right: 15px;
                 background: linear-gradient(135deg, var(--secondary), var(--accent));
                 color: white;
                 padding: 10px 16px;
-                border-radius: 7px;
-                box-shadow: 0 5px 20px rgba(0,0,0,0.35), 0 0 12px rgba(0, 176, 255, 0.5);
-                z-index: 10000;
+                border-radius: 6px;
+                box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 12px rgba(0, 176, 255, 0.5);
+                z-index: 1000;
                 font-weight: 600;
                 transform: translateX(150%);
-                transition: transform 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                font-size: 0.8rem;
+                transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                font-size: 0.85rem;
                 backdrop-filter: blur(10px);
                 border: 1px solid rgba(255,255,255,0.2);
-                max-width: 300px;
-                word-wrap: break-word;
+                text-align: center;
+                max-width: 90%;
             `;
             
             document.body.appendChild(notification);
             
-            // Use requestAnimationFrame for smoother animation
-            requestAnimationFrame(() => {
+            setTimeout(() => {
                 notification.style.transform = 'translateX(0)';
-            });
+            }, 100);
             
             setTimeout(() => {
                 notification.style.transform = 'translateX(150%)';
                 setTimeout(() => {
-                    if (notification.parentNode) {
-                        document.body.removeChild(notification);
-                    }
-                }, 300);
-            }, 2500);
+                    document.body.removeChild(notification);
+                }, 400);
+            }, 4000);
         }
 
-        // Performance optimizations
-        document.addEventListener('DOMContentLoaded', function() {
-            // Use requestAnimationFrame for better performance
-            const animate = () => {
-                // Any continuous animations would go here
-                requestAnimationFrame(animate);
-            };
-            requestAnimationFrame(animate);
+        document.addEventListener('mousemove', function(e) {
+            const floatingElements = document.querySelectorAll('.floating-element');
+            const x = e.clientX / window.innerWidth;
+            const y = e.clientY / window.innerHeight;
             
-            // Optimized scroll animations
+            floatingElements.forEach((element, index) => {
+                const speed = 0.02 + (index * 0.01);
+                const xMove = x * speed * 100;
+                const yMove = y * speed * 100;
+                
+                element.style.transform = `translate(${xMove}px, ${yMove}px)`;
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function() {
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1057,19 +1315,13 @@
                 });
             }, observerOptions);
             
-            // Observe all sections with performance in mind
             document.querySelectorAll('.section').forEach(section => {
                 section.style.opacity = '0';
                 section.style.transform = 'translateY(15px)';
-                section.style.transition = 'opacity 0.4s ease, transform 0.4s ease';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(section);
             });
         });
-
-        // Prevent layout shifts and white flashes
-        window.addEventListener('load', function() {
-            document.body.style.opacity = '1';
-        });
     </script>
 </body>
-                    </html>
+        </html>
