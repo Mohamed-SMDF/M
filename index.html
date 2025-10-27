@@ -47,44 +47,9 @@
             text-rendering: optimizeLegibility;
         }
 
-        /* إزالة الظهور الأبيض */
         * {
             -webkit-tap-highlight-color: transparent;
         }
-
-        /* إطار الصفحة */
-        .page-frame {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            pointer-events: none;
-            z-index: 100;
-        }
-
-        .frame-top, .frame-bottom, .frame-left, .frame-right {
-            position: absolute;
-            background: linear-gradient(90deg, var(--secondary), var(--accent));
-            box-shadow: 0 0 15px rgba(0, 176, 255, 0.7);
-        }
-
-        .frame-top, .frame-bottom {
-            width: 100%;
-            height: 3px;
-            left: 0;
-        }
-
-        .frame-left, .frame-right {
-            width: 3px;
-            height: 100%;
-            top: 0;
-        }
-
-        .frame-top { top: 0; }
-        .frame-bottom { bottom: 0; }
-        .frame-left { left: 0; }
-        .frame-right { right: 0; }
 
         .floating-bg {
             position: fixed;
@@ -133,7 +98,6 @@
             background: radial-gradient(circle, rgba(191, 0, 255, 0.1) 0%, rgba(191, 0, 255, 0) 70%);
         }
 
-        /* العناصر ثلاثية الأبعاد في الزوايا */
         .corner-3d {
             position: fixed;
             width: 80px;
@@ -239,21 +203,22 @@
         }
 
         header {
-            background: linear-gradient(135deg, rgba(26, 35, 126, 0.85) 0%, rgba(13, 20, 64, 0.85) 100%), 
+            background: linear-gradient(135deg, rgba(26, 35, 126, 0.95) 0%, rgba(13, 20, 64, 0.95) 100%), 
                         url('https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/1761506874407.jpg');
             background-size: cover;
             background-position: center;
             color: white;
             padding: 15px 0;
             text-align: center;
-            border-radius: 0 0 15px 15px;
-            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5), var(--glow);
+            border-radius: 0 0 25px 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7), 0 0 25px rgba(0, 176, 255, 0.5);
             position: relative;
             overflow: hidden;
             margin-bottom: 15px;
             transform-style: preserve-3d;
             perspective: 1000px;
-            border: 1px solid rgba(255, 255, 255, 0.2);
+            border: 2px solid rgba(255, 255, 255, 0.2);
+            border-top: none;
         }
 
         .header-bg {
@@ -272,11 +237,11 @@
         .title-box {
             background: rgba(255, 255, 255, 0.1);
             border: 2px solid rgba(255, 255, 255, 0.2);
-            border-radius: 12px;
-            padding: 12px;
+            border-radius: 20px;
+            padding: 15px;
             margin: 0 8px 12px;
-            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
-            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+            backdrop-filter: blur(15px);
             transform: translateZ(20px);
             transition: var(--transition);
             position: relative;
@@ -305,28 +270,28 @@
         }
 
         .title {
-            font-size: 1.6rem;
-            margin-bottom: 6px;
+            font-size: 1.8rem;
+            margin-bottom: 8px;
             background: linear-gradient(90deg, var(--gold), #ffeb3b, var(--gold));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             letter-spacing: -1px;
-            text-shadow: 0 0 10px rgba(255, 215, 0, 0.5);
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
             position: relative;
             font-weight: 800;
         }
 
         .subtitle {
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             opacity: 0.9;
-            line-height: 1.4;
+            line-height: 1.5;
             font-weight: 400;
         }
 
         .glowing-dot {
-            width: 60px;
-            height: 60px;
-            margin: 12px auto;
+            width: 70px;
+            height: 70px;
+            margin: 15px auto;
             position: relative;
             display: flex;
             justify-content: center;
@@ -334,8 +299,8 @@
         }
 
         .dot-outer {
-            width: 45px;
-            height: 45px;
+            width: 55px;
+            height: 55px;
             border: 2px dashed rgba(255, 255, 255, 0.4);
             border-radius: 50%;
             display: flex;
@@ -346,8 +311,8 @@
         }
 
         .dot-middle {
-            width: 35px;
-            height: 35px;
+            width: 40px;
+            height: 40px;
             border: 2px solid rgba(255, 255, 255, 0.6);
             border-radius: 50%;
             display: flex;
@@ -358,8 +323,8 @@
         }
 
         .dot-inner {
-            width: 25px;
-            height: 25px;
+            width: 30px;
+            height: 30px;
             border: 2px solid white;
             border-radius: 50%;
             display: flex;
@@ -370,8 +335,8 @@
         }
 
         .dot-center {
-            width: 8px;
-            height: 8px;
+            width: 10px;
+            height: 10px;
             background: white;
             border-radius: 50%;
             box-shadow: 0 0 12px 4px rgba(255, 255, 255, 0.7);
@@ -400,10 +365,10 @@
 
         .section {
             margin: 20px 0;
-            padding: 12px;
+            padding: 15px;
             background: rgba(255, 255, 255, 0.05);
             backdrop-filter: blur(10px);
-            border-radius: 12px;
+            border-radius: 15px;
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
             transition: var(--transition);
@@ -437,10 +402,10 @@
         }
 
         .section-title {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: var(--secondary);
-            margin-bottom: 12px;
-            padding-bottom: 8px;
+            margin-bottom: 15px;
+            padding-bottom: 10px;
             border-bottom: 1px solid rgba(255, 255, 255, 0.2);
             text-align: center;
             position: relative;
@@ -460,8 +425,8 @@
         .book-grid {
             display: grid;
             grid-template-columns: 1fr;
-            gap: 10px;
-            margin-top: 12px;
+            gap: 12px;
+            margin-top: 15px;
         }
 
         .book-item {
@@ -508,16 +473,16 @@
         .book-name {
             font-weight: 600;
             color: white;
-            font-size: 0.9rem;
-            margin-bottom: 4px;
+            font-size: 0.95rem;
+            margin-bottom: 5px;
             text-shadow: 0 0 4px rgba(255, 255, 255, 0.3);
         }
 
         .book-type {
-            font-size: 0.65rem;
+            font-size: 0.7rem;
             color: var(--accent);
             background: rgba(255, 64, 129, 0.15);
-            padding: 2px 5px;
+            padding: 3px 6px;
             border-radius: 8px;
             display: inline-block;
             box-shadow: 0 0 4px rgba(255, 64, 129, 0.3);
@@ -527,15 +492,15 @@
             background: linear-gradient(135deg, var(--secondary), #0091ea);
             color: white;
             border: none;
-            padding: 6px 10px;
-            border-radius: 6px;
+            padding: 8px 12px;
+            border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
             display: flex;
             align-items: center;
-            gap: 4px;
+            gap: 5px;
             font-weight: 600;
-            font-size: 0.8rem;
+            font-size: 0.85rem;
             box-shadow: 0 4px 12px rgba(0, 176, 255, 0.4);
             position: relative;
             overflow: hidden;
@@ -566,7 +531,7 @@
         .qureo-section {
             background: linear-gradient(135deg, rgba(255, 154, 158, 0.15) 0%, rgba(250, 208, 196, 0.15) 100%);
             padding: 15px;
-            border-radius: 12px;
+            border-radius: 15px;
             text-align: center;
             margin: 25px 0;
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
@@ -600,20 +565,20 @@
         }
 
         .qureo-title {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
+            font-size: 1.2rem;
+            margin-bottom: 12px;
             color: var(--light);
             text-shadow: 0 0 8px rgba(255, 255, 255, 0.3);
         }
 
         .qureo-link-container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 10px;
-            border-radius: 8px;
+            padding: 12px;
+            border-radius: 10px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
-            margin: 12px 0;
+            gap: 12px;
+            margin: 15px 0;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
             border: 1px solid rgba(255, 255, 255, 0.2);
             backdrop-filter: blur(5px);
@@ -626,29 +591,29 @@
             white-space: nowrap;
             text-align: center;
             direction: ltr;
-            padding: 6px;
+            padding: 8px;
             background: rgba(0, 0, 0, 0.2);
-            border-radius: 4px;
+            border-radius: 5px;
             box-shadow: inset 0 0 4px rgba(0, 0, 0, 0.3);
         }
 
         .link-buttons {
             display: flex;
-            gap: 8px;
+            gap: 10px;
             justify-content: center;
         }
 
         .link-btn {
-            padding: 6px 12px;
+            padding: 8px 14px;
             border: none;
-            border-radius: 5px;
+            border-radius: 6px;
             cursor: pointer;
             transition: var(--transition);
             font-weight: 600;
             display: flex;
             align-items: center;
-            gap: 4px;
-            font-size: 0.8rem;
+            gap: 5px;
+            font-size: 0.85rem;
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
@@ -687,7 +652,7 @@
         .contact-section {
             background: linear-gradient(135deg, rgba(0, 176, 255, 0.1) 0%, rgba(255, 64, 129, 0.1) 100%);
             padding: 15px;
-            border-radius: 12px;
+            border-radius: 15px;
             margin: 25px 0;
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -697,14 +662,14 @@
         .contact-form {
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px;
             margin-top: 15px;
         }
 
         .form-group {
             display: flex;
             flex-direction: column;
-            gap: 6px;
+            gap: 8px;
         }
 
         .form-label {
@@ -715,10 +680,10 @@
         .form-input, .form-textarea {
             background: rgba(255, 255, 255, 0.1);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            border-radius: 6px;
-            padding: 8px 12px;
+            border-radius: 8px;
+            padding: 10px 12px;
             color: white;
-            font-size: 0.85rem;
+            font-size: 0.9rem;
             transition: var(--transition);
             backdrop-filter: blur(5px);
         }
@@ -738,18 +703,18 @@
             background: linear-gradient(135deg, var(--accent), #f50057);
             color: white;
             border: none;
-            padding: 10px 16px;
-            border-radius: 6px;
+            padding: 12px 18px;
+            border-radius: 8px;
             cursor: pointer;
             transition: var(--transition);
             font-weight: 600;
-            font-size: 0.9rem;
+            font-size: 0.95rem;
             box-shadow: 0 4px 12px rgba(255, 64, 129, 0.4);
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 6px;
-            margin-top: 8px;
+            gap: 8px;
+            margin-top: 10px;
         }
 
         .submit-btn:hover {
@@ -763,7 +728,7 @@
             text-align: center;
             padding: 15px 0;
             margin-top: 25px;
-            border-radius: 12px 12px 0 0;
+            border-radius: 15px 15px 0 0;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             backdrop-filter: blur(10px);
             box-shadow: 0 -4px 15px rgba(0, 0, 0, 0.3);
@@ -771,16 +736,15 @@
         }
 
         .footer-text {
-            margin-bottom: 6px;
-            font-size: 0.9rem;
+            margin-bottom: 8px;
+            font-size: 0.95rem;
         }
 
         .copyright {
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             opacity: 0.8;
         }
 
-        /* شاشة التحميل المحسنة */
         .loading {
             position: fixed;
             top: 0;
@@ -843,7 +807,6 @@
             100% { transform: rotate(360deg); }
         }
 
-        /* رسالة الترحيب الفاخرة */
         .welcome-notification {
             position: fixed;
             top: 50%;
@@ -1005,9 +968,9 @@
             right: 10px;
             background: linear-gradient(135deg, var(--secondary), var(--accent));
             color: white;
-            padding: 6px 12px;
+            padding: 8px 15px;
             border-radius: 20px;
-            font-size: 0.75rem;
+            font-size: 0.8rem;
             font-weight: 600;
             z-index: 100;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 176, 255, 0.5);
@@ -1015,10 +978,16 @@
             border: 1px solid rgba(255, 255, 255, 0.2);
             display: flex;
             align-items: center;
-            gap: 5px;
+            gap: 6px;
+            cursor: pointer;
+            transition: var(--transition);
         }
 
-        /* إضافة جديدة: شريط التقدم */
+        .corner-badge:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 176, 255, 0.7);
+        }
+
         .progress-bar {
             position: fixed;
             top: 0;
@@ -1031,7 +1000,6 @@
             box-shadow: 0 0 10px rgba(0, 176, 255, 0.7);
         }
 
-        /* إضافة جديدة: أزهار نيون */
         .neon-flower {
             position: fixed;
             width: 30px;
@@ -1081,7 +1049,6 @@
             }
         }
 
-        /* إضافة جديدة: تأثيرات نيون للعناوين */
         .neon-title {
             color: #fff;
             text-shadow: 
@@ -1109,11 +1076,10 @@
             }
         }
 
-        /* قسم معلومات المطور */
         .developer-section {
             background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 193, 7, 0.1) 100%);
             padding: 15px;
-            border-radius: 12px;
+            border-radius: 15px;
             margin: 25px 0;
             box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
             border: 1px solid rgba(255, 255, 255, 0.1);
@@ -1122,7 +1088,7 @@
         }
 
         .developer-title {
-            font-size: 1.3rem;
+            font-size: 1.4rem;
             color: var(--gold);
             margin-bottom: 15px;
             text-shadow: 0 0 8px rgba(255, 215, 0, 0.5);
@@ -1132,7 +1098,7 @@
         .developer-info {
             display: flex;
             flex-direction: column;
-            gap: 8px;
+            gap: 10px;
             margin-bottom: 15px;
         }
 
@@ -1140,26 +1106,25 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 8px;
-            font-size: 0.9rem;
+            gap: 10px;
+            font-size: 0.95rem;
         }
 
         .developer-item i {
             color: var(--gold);
-            font-size: 1rem;
+            font-size: 1.1rem;
         }
 
         .developer-goal {
             background: rgba(255, 255, 255, 0.05);
-            padding: 10px;
-            border-radius: 8px;
-            font-size: 0.85rem;
+            padding: 12px;
+            border-radius: 10px;
+            font-size: 0.9rem;
             line-height: 1.5;
             border: 1px solid rgba(255, 255, 255, 0.1);
             margin-top: 10px;
         }
 
-        /* أشكال تفاعلية 3D */
         .interactive-shapes {
             position: fixed;
             width: 100%;
@@ -1227,7 +1192,6 @@
             }
         }
 
-        /* شعار الموقع في الأعلى */
         .site-logo {
             position: absolute;
             top: 10px;
@@ -1246,6 +1210,102 @@
         .site-logo i {
             color: white;
             font-size: 1.5rem;
+        }
+
+        .supervisor-notification {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0.8);
+            background: rgba(255, 255, 255, 0.08);
+            backdrop-filter: blur(20px);
+            border: 1px solid rgba(255, 255, 255, 0.15);
+            border-radius: 20px;
+            padding: 30px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.6), 
+                        0 0 40px rgba(0, 176, 255, 0.4),
+                        0 0 60px rgba(255, 64, 129, 0.3);
+            z-index: 1000;
+            text-align: center;
+            max-width: 90%;
+            width: 450px;
+            opacity: 0;
+            transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            overflow: hidden;
+        }
+
+        .supervisor-notification::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, rgba(0, 176, 255, 0.1), rgba(255, 64, 129, 0.1));
+            z-index: -1;
+            opacity: 0.5;
+        }
+
+        .supervisor-notification.active {
+            opacity: 1;
+            transform: translate(-50%, -50%) scale(1);
+        }
+
+        .supervisor-icon {
+            font-size: 3rem;
+            margin-bottom: 15px;
+            color: var(--gold);
+            text-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+        }
+
+        .supervisor-title {
+            font-size: 1.6rem;
+            margin-bottom: 10px;
+            background: linear-gradient(90deg, var(--gold), #ffeb3b, var(--gold));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255, 215, 0, 0.7);
+            font-weight: 800;
+        }
+
+        .supervisor-text {
+            margin-bottom: 15px;
+            line-height: 1.6;
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+
+        .supervisor-name {
+            font-weight: 700;
+            font-size: 1.2rem;
+            background: linear-gradient(90deg, var(--accent), #ff80ab);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 15px rgba(255, 64, 129, 0.7);
+            margin-top: 10px;
+        }
+
+        .supervisor-close {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            transition: var(--transition);
+            font-size: 1rem;
+        }
+
+        .supervisor-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
         }
 
         @media (min-width: 480px) {
@@ -1279,7 +1339,7 @@
             }
             
             .title {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
         }
 
@@ -1303,18 +1363,8 @@
     </style>
 </head>
 <body>
-    <!-- إطار الصفحة -->
-    <div class="page-frame">
-        <div class="frame-top"></div>
-        <div class="frame-bottom"></div>
-        <div class="frame-left"></div>
-        <div class="frame-right"></div>
-    </div>
-
-    <!-- شريط التقدم -->
     <div class="progress-bar" id="progressBar"></div>
 
-    <!-- إضافة أزهار النيون -->
     <div class="neon-flower" style="top: 10%; left: 5%;"></div>
     <div class="neon-flower" style="top: 20%; right: 10%;"></div>
     <div class="neon-flower" style="top: 50%; left: 15%;"></div>
@@ -1322,7 +1372,6 @@
     <div class="neon-flower" style="top: 30%; right: 20%;"></div>
     <div class="neon-flower" style="top: 80%; left: 10%;"></div>
 
-    <!-- أشكال تفاعلية 3D -->
     <div class="interactive-shapes">
         <div class="shape atom" style="top: 15%; left: 8%; animation-delay: 0s;"></div>
         <div class="shape molecule" style="top: 25%; right: 12%; animation-delay: -5s;"></div>
@@ -1340,7 +1389,6 @@
         </div>
     </div>
 
-    <!-- العناصر ثلاثية الأبعاد في الزوايا -->
     <div class="corner-3d top-left">
         <div class="cube">
             <div class="cube-face front"><i class="fas fa-book"></i></div>
@@ -1385,14 +1433,13 @@
         </div>
     </div>
 
-    <!-- شعار الموقع -->
     <div class="site-logo">
         <i class="fas fa-graduation-cap"></i>
     </div>
 
-    <div class="corner-badge">
+    <div class="corner-badge" id="supervisorBtn">
         <i class="fas fa-star"></i>
-          نزل كتبك بكل سهوله ✋
+        نزل كتبك بكل سهوله ✋
         <i class="fas fa-star"></i>
     </div>
 
@@ -1405,6 +1452,17 @@
         <h2 class="welcome-title">مرحباً بك في عالم المعرفة!</h2>
         <p class="welcome-text">يسعدنا ترحيبك في موقع <strong>سهلنهالك</strong>، المنصة المتطورة التي تضع بين يديك كل ما تحتاجه لرحلتك الدراسية. تم تطوير هذا الموقع خصيصاً لطلاب الصف الأول الثانوي لتسهيل الوصول إلى الكتب الدراسية والمراجع الخارجية.</p>
         <p class="welcome-developer">المطور: محمد أبو السعود عزت</p>
+    </div>
+
+    <div class="overlay" id="supervisorOverlay"></div>
+    <div class="supervisor-notification" id="supervisorNotification">
+        <button class="supervisor-close" onclick="closeSupervisor()">
+            <i class="fas fa-times"></i>
+        </button>
+        <div class="supervisor-icon">🏫</div>
+        <h2 class="supervisor-title">تحت إشراف مدير المدرسة</h2>
+        <p class="supervisor-text">هذا الموقع التعليمي يعمل تحت إشراف وإدارة مدير المدرسة</p>
+        <p class="supervisor-name">أستاذ: شريف الشيمي</p>
     </div>
 
     <div class="floating-bg">
@@ -1434,7 +1492,6 @@
     </header>
 
     <main class="container">
-        <!-- قسم معلومات المطور -->
         <section class="section card-3d developer-section">
             <h2 class="developer-title">معلومات المطور</h2>
             <div class="developer-info">
@@ -1464,67 +1521,67 @@
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة العربية</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('arabic')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="arabic"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الأجنبية الأولى</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('english')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="english"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب الرياضيات</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('math')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="math"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التاريخ</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('history')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="history"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب الفلسفة والمنطق</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('philosophy')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="philosophy"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب العلوم المتكاملة</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('science')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="science"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الثانية فرنساوي</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('french')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="french"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الثانية الماني</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('german')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="german"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب البرمجة والذكاء الاصطناعي</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('programming')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="programming"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التربية الدينية الإسلامية</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('islamic')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="islamic"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التربية الدينية المسيحية</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('christian')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="christian"><i class="fas fa-download"></i> تحميل</button>
                 </div>
             </div>
         </section>
@@ -1537,28 +1594,28 @@
                         <div class="book-name">كتاب اللغة العربية</div>
                         <div class="book-type">الأمتحان</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('arabic-exam')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="arabic-exam"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التاريخ</div>
                         <div class="book-type">الأمتحان</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('history-exam')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="history-exam"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب الفلسفة والمنطق</div>
                         <div class="book-type">الأمتحان</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('philosophy-exam')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="philosophy-exam"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب العلوم المتكاملة</div>
                         <div class="book-type">الأمتحان</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('science-exam')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="science-exam"><i class="fas fa-download"></i> تحميل</button>
                 </div>
             </div>
         </section>
@@ -1571,21 +1628,21 @@
                         <div class="book-name">كتاب اللغة العربية</div>
                         <div class="book-type">الأضواء</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('arabic-lights')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="arabic-lights"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التاريخ</div>
                         <div class="book-type">الأضواء</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('history-lights')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="history-lights"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب العلوم المتكاملة</div>
                         <div class="book-type">الأضواء</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('science-lights')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="science-lights"><i class="fas fa-download"></i> تحميل</button>
                 </div>
             </div>
         </section>
@@ -1598,21 +1655,21 @@
                         <div class="book-name">كتاب الرياضيات</div>
                         <div class="book-type">المعاصر</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('math-modern')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="math-modern"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الثانية فرنساوي</div>
                         <div class="book-type">المعاصر</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('french-modern')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="french-modern"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الإنجليزية</div>
                         <div class="book-type">المعاصر</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('english-modern')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="english-modern"><i class="fas fa-download"></i> تحميل</button>
                 </div>
             </div>
         </section>
@@ -1624,40 +1681,40 @@
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الثانية الماني جلوبال</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('german-global')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="german-global"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الثانية فرنساوي براڤو</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('french-bravo')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="french-bravo"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الثانية الماني هالو ديوتش</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('german-hallo')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="german-hallo"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب GEM للغة الإنجليزية</div>
                         <div class="book-type">GEM</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('english-gem')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="english-gem"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التفوق علوم متكاملة</div>
                         <div class="book-type">التفوق</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('excellence-science')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="excellence-science"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب محمد صلاح للغة عربية</div>
                         <div class="book-type">محمد صلاح</div>
                     </div>
-                    <button class="download-btn" onclick="downloadBook('mohamed-salah')"><i class="fas fa-download"></i> تحميل</button>
+                    <button class="download-btn" data-book="mohamed-salah"><i class="fas fa-download"></i> تحميل</button>
                 </div>
             </div>
         </section>
@@ -1667,8 +1724,8 @@
             <div class="qureo-link-container">
                 <div class="link-text">https://me-portal.qureo.education/login</div>
                 <div class="link-buttons">
-                    <button class="link-btn copy-btn" onclick="copyLink()"><i class="fas fa-copy"></i> نسخ</button>
-                    <button class="link-btn go-btn" onclick="goToLink()"><i class="fas fa-external-link-alt"></i> الدخول</button>
+                    <button class="link-btn copy-btn" id="copyLinkBtn"><i class="fas fa-copy"></i> نسخ</button>
+                    <button class="link-btn go-btn" id="goLinkBtn"><i class="fas fa-external-link-alt"></i> الدخول</button>
                 </div>
             </div>
         </section>
@@ -1708,191 +1765,185 @@
     </footer>
 
     <script>
-        // تحسين شاشة التحميل - تظهر فقط لمدة ثانيتين
-        window.addEventListener('load', function() {
+        document.addEventListener('DOMContentLoaded', function() {
             setTimeout(function() {
                 document.querySelector('.loading').classList.add('hidden');
                 
-                // عرض رسالة الترحيب بعد نصف ثانية
                 setTimeout(function() {
                     document.getElementById('welcomeOverlay').classList.add('active');
                     document.getElementById('welcomeNotification').classList.add('active');
                 }, 500);
-            }, 2000); // 2 ثانية فقط
-        });
+            }, 2000);
 
-        // إغلاق رسالة الترحيب
-        function closeWelcome() {
-            document.getElementById('welcomeOverlay').classList.remove('active');
-            document.getElementById('welcomeNotification').classList.remove('active');
-        }
+            const bookUrls = {  
+                'arabic': 'https://www.mediafire.com/file/poqp5qsjyvaysso/arabic_1sec_t1.pdf/file',  
+                'english': 'https://www.mediafire.com/file/eh6x13z1qv7pqmb/English_1sec_t1.pdf/file',  
+                'math': 'https://www.mediafire.com/file/z2t9z9bei4suuun/Mathematics_AR_Tr1_Secondary.pdf/file',  
+                'history': 'https://www.mediafire.com/file/6n0g643avow42nu/History_Sec1_Tr1.pdf/file',  
+                'philosophy': 'https://www.mediafire.com/file/qa35kbyyttk0d63/Philosophy_and_Logic_Tr1_1sec.pdf/file',  
+                'science': 'https://www.mediafire.com/file/mb2bib9jajc2s5x/integratedscience_ARABIC_1_Secondary_TR1.pdf/file',  
+                'french': 'https://www.mediafire.com/file/vabqby13trh7n1w/French2_Sec1_tr1_w1.pdf/file',  
+                'german': 'https://www.mediafire.com/file/3rlvvxmlyqj4mez/Deutsch_language_Secondary1_TR1_W1.pdf/file',  
+                'programming': 'https://www.mediafire.com/file/vg2wsoky8ssuoz8/ICT_Ar_Sec1_T1.pdf/file',  
+                'islamic': 'https://www.mediafire.com/file/1ktp2y8k1jevbl7/Islamic_Religious_Education_Sec1_Tr1.pdf/file',  
+                'christian': 'https://www.mediafire.com/file/me8yw4qgw1eyywk/Christian_1sec_t1%25282%2529.pdf/file',
+                'arabic-exam': 'https://www.mediafire.com/file/3cjuxxgli1jzbba/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'history-exam': 'https://www.mediafire.com/file/t3ktnf71dxuhj78/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'philosophy-exam': 'https://www.mediafire.com/file/rds7dvmesvsjun5/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2581%25D9%2584%25D8%25B3%25D9%2581%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A-2.pdf/file',
+                'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25A7%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+                'arabic-lights': 'https://www.mediafire.com/file/ckqfwkc0rbskd21/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%2580%25D8%25A8%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+                'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+                'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A8-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'english-modern': 'https://www.mediafire.com/file/fmt2zg8b4p1xc2r/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+                'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+                'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
+                'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file',
+                'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'mohamed-salah': 'https://www.mediafire.com/file/1ajh1h7sbz0iauw/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25B4%25D8%25B1%25D8%25AD_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2584_2026.pdf/file'
+            };
 
-        // إغلاق رسالة الترحيب بالنقر على الخلفية
-        document.getElementById('welcomeOverlay').addEventListener('click', closeWelcome);
-
-        const bookUrls = {  
-            'arabic': 'https://www.mediafire.com/file/poqp5qsjyvaysso/arabic_1sec_t1.pdf/file',  
-            'english': 'https://www.mediafire.com/file/eh6x13z1qv7pqmb/English_1sec_t1.pdf/file',  
-            'math': 'https://www.mediafire.com/file/z2t9z9bei4suuun/Mathematics_AR_Tr1_Secondary.pdf/file',  
-            'history': 'https://www.mediafire.com/file/6n0g643avow42nu/History_Sec1_Tr1.pdf/file',  
-            'philosophy': 'https://www.mediafire.com/file/qa35kbyyttk0d63/Philosophy_and_Logic_Tr1_1sec.pdf/file',  
-            'science': 'https://www.mediafire.com/file/mb2bib9jajc2s5x/integratedscience_ARABIC_1_Secondary_TR1.pdf/file',  
-            'french': 'https://www.mediafire.com/file/vabqby13trh7n1w/French2_Sec1_tr1_w1.pdf/file',  
-            'german': 'https://www.mediafire.com/file/3rlvvxmlyqj4mez/Deutsch_language_Secondary1_TR1_W1.pdf/file',  
-            'programming': 'https://www.mediafire.com/file/vg2wsoky8ssuoz8/ICT_Ar_Sec1_T1.pdf/file',  
-            'islamic': 'https://www.mediafire.com/file/1ktp2y8k1jevbl7/Islamic_Religious_Education_Sec1_Tr1.pdf/file',  
-            'christian': 'https://www.mediafire.com/file/me8yw4qgw1eyywk/Christian_1sec_t1%25282%2529.pdf/file',
-            'arabic-exam': 'https://www.mediafire.com/file/3cjuxxgli1jzbba/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'history-exam': 'https://www.mediafire.com/file/t3ktnf71dxuhj78/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'philosophy-exam': 'https://www.mediafire.com/file/rds7dvmesvsjun5/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2581%25D9%2584%25D8%25B3%25D9%2581%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A-2.pdf/file',
-            'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-            'arabic-lights': 'https://www.mediafire.com/file/ckqfwkc0rbskd21/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%2580%25D8%25A8%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-            'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'english-modern': 'https://www.mediafire.com/file/fmt2zg8b4p1xc2r/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-            'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-            'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
-            'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file',
-            'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-            'mohamed-salah': 'https://www.mediafire.com/file/1ajh1h7sbz0iauw/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25B4%25D8%25B1%25D8%25AD_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2584_2026.pdf/file'
-        };
-
-        function downloadBook(bookId) {
-            const url = bookUrls[bookId];
-            if (url) {
-                const button = event.target.closest('.download-btn');
-                const originalText = button.innerHTML;
-                button.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحميل';
-                button.disabled = true;
-                
-                setTimeout(() => {
-                    window.open(url, '_blank');
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                }, 1000);
-            } else {
-                showNotification("الرابط غير متوفر حالياً");
-            }
-        }
-
-        function copyLink() {
-            const link = "https://me-portal.qureo.education";
-            navigator.clipboard.writeText(link).then(() => {
-                showNotification("تم نسخ الرابط بنجاح! 📋");
+            document.querySelectorAll('.download-btn').forEach(button => {
+                button.addEventListener('click', function() {
+                    const bookId = this.getAttribute('data-book');
+                    const url = bookUrls[bookId];
+                    
+                    if (url) {
+                        const originalText = this.innerHTML;
+                        this.innerHTML = '<i class="fas fa-spinner fa-spin"></i> جاري التحميل';
+                        this.disabled = true;
+                        
+                        setTimeout(() => {
+                            window.open(url, '_blank');
+                            this.innerHTML = originalText;
+                            this.disabled = false;
+                        }, 1000);
+                    } else {
+                        showNotification("الرابط غير متوفر حالياً");
+                    }
+                });
             });
-        }
 
-        function goToLink() {
-            window.open("https://me-portal.qureo.education", "_blank");
-        }
+            document.getElementById('copyLinkBtn').addEventListener('click', function() {
+                const link = "https://me-portal.qureo.education";
+                navigator.clipboard.writeText(link).then(() => {
+                    showNotification("تم نسخ الرابط بنجاح! 📋");
+                });
+            });
 
-        const telegramBotToken = '7143459580:AAG81E34PXKvD0mZULQfTMN9DFkg4HnfDo8';
-        const telegramChatId = '7860990853';
+            document.getElementById('goLinkBtn').addEventListener('click', function() {
+                window.open("https://me-portal.qureo.education", "_blank");
+            });
 
-        document.getElementById('contactForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const userName = document.getElementById('userName').value;
-            const bookName = document.getElementById('bookName').value;
-            const message = document.getElementById('message').value;
-            
-            sendToTelegram(userName, bookName, message);
-            
-            showNotification("شكراً! 🙏 تم إرسال رسالتك للمطور: محمد أبو السعود");
-            
-            document.getElementById('contactForm').reset();
-        });
+            document.getElementById('supervisorBtn').addEventListener('click', function() {
+                document.getElementById('supervisorOverlay').classList.add('active');
+                document.getElementById('supervisorNotification').classList.add('active');
+            });
 
-        function sendToTelegram(userName, bookName, message) {
-            const text = `رسالة جديدة من موقع سهلنهالك 👨‍💻
-            
+            const telegramBotToken = '7143459580:AAG81E34PXKvD0mZULQfTMN9DFkg4HnfDo8';
+            const telegramChatId = '7860990853';
+
+            document.getElementById('contactForm').addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                const userName = document.getElementById('userName').value;
+                const bookName = document.getElementById('bookName').value;
+                const message = document.getElementById('message').value;
+                
+                sendToTelegram(userName, bookName, message);
+                
+                showNotification("شكراً! 🙏 تم إرسال رسالتك للمطور: محمد أبو السعود");
+                
+                document.getElementById('contactForm').reset();
+            });
+
+            function sendToTelegram(userName, bookName, message) {
+                const text = `رسالة جديدة من موقع سهلنهالك 👨‍💻
+                
 👤 الاسم: ${userName}
 📚 الكتاب المطلوب: ${bookName || 'لم يحدد'}
 💬 الرسالة: ${message}
-            
+                
 🕒 الوقت: ${new Date().toLocaleString('ar-EG')}`;
 
-            const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
-            
-            fetch(url, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    chat_id: telegramChatId,
-                    text: text,
-                    parse_mode: 'HTML'
-                })
-            }).catch(error => {
-                console.error('Error sending to Telegram:', error);
-            });
-        }
-
-        function showNotification(message) {
-            const notification = document.createElement('div');
-            notification.textContent = message;
-            notification.style.cssText = `
-                position: fixed;
-                top: 15px;
-                right: 15px;
-                background: linear-gradient(135deg, var(--secondary), var(--accent));
-                color: white;
-                padding: 10px 16px;
-                border-radius: 6px;
-                box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 12px rgba(0, 176, 255, 0.5);
-                z-index: 1000;
-                font-weight: 600;
-                transform: translateX(150%);
-                transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-                font-size: 0.85rem;
-                backdrop-filter: blur(10px);
-                border: 1px solid rgba(255,255,255,0.2);
-                text-align: center;
-                max-width: 90%;
-            `;
-            
-            document.body.appendChild(notification);
-            
-            setTimeout(() => {
-                notification.style.transform = 'translateX(0)';
-            }, 100);
-            
-            setTimeout(() => {
-                notification.style.transform = 'translateX(150%)';
-                setTimeout(() => {
-                    document.body.removeChild(notification);
-                }, 400);
-            }, 4000);
-        }
-
-        // شريط التقدم
-        window.addEventListener('scroll', function() {
-            const winHeight = window.innerHeight;
-            const docHeight = document.documentElement.scrollHeight;
-            const scrollTop = window.pageYOffset;
-            const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
-            document.getElementById('progressBar').style.width = scrollPercent + '%';
-        });
-
-        document.addEventListener('mousemove', function(e) {
-            const floatingElements = document.querySelectorAll('.floating-element');
-            const x = e.clientX / window.innerWidth;
-            const y = e.clientY / window.innerHeight;
-            
-            floatingElements.forEach((element, index) => {
-                const speed = 0.02 + (index * 0.01);
-                const xMove = x * speed * 100;
-                const yMove = y * speed * 100;
+                const url = `https://api.telegram.org/bot${telegramBotToken}/sendMessage`;
                 
-                element.style.transform = `translate(${xMove}px, ${yMove}px)`;
-            });
-        });
+                fetch(url, {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        chat_id: telegramChatId,
+                        text: text,
+                        parse_mode: 'HTML'
+                    })
+                }).catch(error => {
+                    console.error('Error sending to Telegram:', error);
+                });
+            }
 
-        document.addEventListener('DOMContentLoaded', function() {
+            function showNotification(message) {
+                const notification = document.createElement('div');
+                notification.textContent = message;
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 15px;
+                    right: 15px;
+                    background: linear-gradient(135deg, var(--secondary), var(--accent));
+                    color: white;
+                    padding: 10px 16px;
+                    border-radius: 6px;
+                    box-shadow: 0 4px 20px rgba(0,0,0,0.4), 0 0 12px rgba(0, 176, 255, 0.5);
+                    z-index: 1000;
+                    font-weight: 600;
+                    transform: translateX(150%);
+                    transition: transform 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+                    font-size: 0.85rem;
+                    backdrop-filter: blur(10px);
+                    border: 1px solid rgba(255,255,255,0.2);
+                    text-align: center;
+                    max-width: 90%;
+                `;
+                
+                document.body.appendChild(notification);
+                
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(0)';
+                }, 100);
+                
+                setTimeout(() => {
+                    notification.style.transform = 'translateX(150%)';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 400);
+                }, 4000);
+            }
+
+            window.addEventListener('scroll', function() {
+                const winHeight = window.innerHeight;
+                const docHeight = document.documentElement.scrollHeight;
+                const scrollTop = window.pageYOffset;
+                const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+                document.getElementById('progressBar').style.width = scrollPercent + '%';
+            });
+
+            document.addEventListener('mousemove', function(e) {
+                const floatingElements = document.querySelectorAll('.floating-element');
+                const x = e.clientX / window.innerWidth;
+                const y = e.clientY / window.innerHeight;
+                
+                floatingElements.forEach((element, index) => {
+                    const speed = 0.02 + (index * 0.01);
+                    const xMove = x * speed * 100;
+                    const yMove = y * speed * 100;
+                    
+                    element.style.transform = `translate(${xMove}px, ${yMove}px)`;
+                });
+            });
+
             const observerOptions = {
                 threshold: 0.1,
                 rootMargin: '0px 0px -50px 0px'
@@ -1914,6 +1965,19 @@
                 observer.observe(section);
             });
         });
+
+        function closeWelcome() {
+            document.getElementById('welcomeOverlay').classList.remove('active');
+            document.getElementById('welcomeNotification').classList.remove('active');
+        }
+
+        function closeSupervisor() {
+            document.getElementById('supervisorOverlay').classList.remove('active');
+            document.getElementById('supervisorNotification').classList.remove('active');
+        }
+
+        document.getElementById('welcomeOverlay').addEventListener('click', closeWelcome);
+        document.getElementById('supervisorOverlay').addEventListener('click', closeSupervisor);
     </script>
 </body>
     </html>
