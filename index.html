@@ -18,6 +18,8 @@
             --neon-pink: #ff00ff;
             --neon-blue: #00ffff;
             --neon-purple: #bf00ff;
+            --neon-green: #39ff14;
+            --neon-yellow: #ffff00;
         }
 
         * {
@@ -203,7 +205,7 @@
 
         header {
             background: linear-gradient(135deg, rgba(26, 35, 126, 0.85) 0%, rgba(13, 20, 64, 0.85) 100%), 
-                        url('https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/1761499720699-1.jpg');
+                        url('https://dev-mohameddf.pantheonsite.io/wp-content/uploads/2025/10/1761506874407.jpg');
             background-size: cover;
             background-position: center;
             color: white;
@@ -980,6 +982,172 @@
             gap: 5px;
         }
 
+        /* إضافة جديدة: شريط التقدم */
+        .progress-bar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 0%;
+            height: 3px;
+            background: linear-gradient(90deg, var(--secondary), var(--accent));
+            z-index: 1000;
+            transition: width 0.3s ease;
+            box-shadow: 0 0 10px rgba(0, 176, 255, 0.7);
+        }
+
+        /* إضافة جديدة: أزهار نيون */
+        .neon-flower {
+            position: fixed;
+            width: 30px;
+            height: 30px;
+            z-index: 0;
+            opacity: 0.3;
+            animation: float-flower 15s infinite linear;
+        }
+
+        .neon-flower::before {
+            content: '✿';
+            font-size: 30px;
+            color: var(--neon-pink);
+            text-shadow: 0 0 10px var(--neon-pink);
+        }
+
+        .neon-flower:nth-child(odd)::before {
+            color: var(--neon-blue);
+            text-shadow: 0 0 10px var(--neon-blue);
+        }
+
+        .neon-flower:nth-child(3n)::before {
+            color: var(--neon-green);
+            text-shadow: 0 0 10px var(--neon-green);
+        }
+
+        .neon-flower:nth-child(4n)::before {
+            color: var(--neon-yellow);
+            text-shadow: 0 0 10px var(--neon-yellow);
+        }
+
+        @keyframes float-flower {
+            0% {
+                transform: translate(0, 0) rotate(0deg);
+            }
+            25% {
+                transform: translate(20px, 40px) rotate(90deg);
+            }
+            50% {
+                transform: translate(-10px, 70px) rotate(180deg);
+            }
+            75% {
+                transform: translate(30px, 20px) rotate(270deg);
+            }
+            100% {
+                transform: translate(0, 0) rotate(360deg);
+            }
+        }
+
+        /* إضافة جديدة: تأثيرات نيون للعناوين */
+        .neon-title {
+            color: #fff;
+            text-shadow: 
+                0 0 5px #fff,
+                0 0 10px #fff,
+                0 0 15px var(--neon-blue),
+                0 0 20px var(--neon-blue),
+                0 0 25px var(--neon-blue),
+                0 0 30px var(--neon-blue);
+            animation: neon-flicker 2s infinite alternate;
+        }
+
+        @keyframes neon-flicker {
+            0%, 18%, 22%, 25%, 53%, 57%, 100% {
+                text-shadow: 
+                    0 0 5px #fff,
+                    0 0 10px #fff,
+                    0 0 15px var(--neon-blue),
+                    0 0 20px var(--neon-blue),
+                    0 0 25px var(--neon-blue),
+                    0 0 30px var(--neon-blue);
+            }
+            20%, 24%, 55% {
+                text-shadow: none;
+            }
+        }
+
+        /* إضافة جديدة: أزرار بتأثيرات نيون */
+        .neon-btn {
+            background: transparent;
+            color: var(--neon-blue);
+            border: 2px solid var(--neon-blue);
+            border-radius: 8px;
+            padding: 8px 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-shadow: 0 0 5px var(--neon-blue);
+            box-shadow: 
+                inset 0 0 10px rgba(0, 176, 255, 0.1),
+                0 0 10px rgba(0, 176, 255, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(0, 176, 255, 0.4), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .neon-btn:hover {
+            background: rgba(0, 176, 255, 0.1);
+            box-shadow: 
+                inset 0 0 20px rgba(0, 176, 255, 0.2),
+                0 0 20px rgba(0, 176, 255, 0.4),
+                0 0 30px rgba(0, 176, 255, 0.6);
+            color: #fff;
+        }
+
+        .neon-btn:hover::before {
+            left: 100%;
+        }
+
+        /* إضافة جديدة: تأثيرات نيون للبطاقات */
+        .neon-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 12px;
+            padding: 15px;
+            margin: 10px 0;
+            box-shadow: 
+                0 5px 15px rgba(0, 0, 0, 0.3),
+                0 0 5px rgba(0, 176, 255, 0.2);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .neon-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, transparent, rgba(0, 176, 255, 0.05), transparent);
+            z-index: -1;
+        }
+
+        .neon-card:hover {
+            box-shadow: 
+                0 8px 25px rgba(0, 0, 0, 0.4),
+                0 0 15px rgba(0, 176, 255, 0.4);
+            transform: translateY(-5px);
+        }
+
         @media (min-width: 480px) {
             .container {
                 width: 95%;
@@ -1035,6 +1203,17 @@
     </style>
 </head>
 <body>
+    <!-- شريط التقدم -->
+    <div class="progress-bar" id="progressBar"></div>
+
+    <!-- إضافة أزهار النيون -->
+    <div class="neon-flower" style="top: 10%; left: 5%;"></div>
+    <div class="neon-flower" style="top: 20%; right: 10%;"></div>
+    <div class="neon-flower" style="top: 50%; left: 15%;"></div>
+    <div class="neon-flower" style="top: 70%; right: 5%;"></div>
+    <div class="neon-flower" style="top: 30%; right: 20%;"></div>
+    <div class="neon-flower" style="top: 80%; left: 10%;"></div>
+
     <div class="loading">
         <div class="loading-container">
             <div class="loading-spinner"></div>
@@ -1090,7 +1269,7 @@
 
     <div class="corner-badge">
         <i class="fas fa-star"></i>
-        موقع رائع
+          نزل كتبك بكل سهوله ✋
         <i class="fas fa-star"></i>
     </div>
 
@@ -1102,7 +1281,7 @@
         <div class="welcome-icon">👑</div>
         <h2 class="welcome-title">مرحباً بك في عالم المعرفة!</h2>
         <p class="welcome-text">يسعدنا ترحيبك في موقع <strong>سهلنهالك</strong>، المنصة المتطورة التي تضع بين يديك كل ما تحتاجه لرحلتك الدراسية</p>
-        <p class="welcome-developer">المطور: محمد أبو السعود</p>
+        <p class="welcome-developer">المطور: محمد أبو السعود عزت</p>
     </div>
 
     <div class="floating-bg">
@@ -1115,7 +1294,7 @@
         <div class="header-bg"></div>
         <div class="container">
             <div class="title-box card-3d">
-                <h1 class="title">♕..«سـهــــــلنهــالـك»..♕</h1>
+                <h1 class="title neon-title">♕..«سـهــــــلنهــالـك»..♕</h1>
                 <p class="subtitle">هذا الموقع متطور لزملائنا لمساعدتهم علي تنزيل الكتب الدراسيه في الهاتف او التبلت الدراسي... للصف الاول الثانوي 2026... نحن زملائكم ادعو لنا بالتوفيق جميعا... هنا هتلاقي كل الكتب الخارجيه أمتحان وأضواء ومعاصر وغيرها.. والكتب المدرسيه للدراسه 😉</p>
             </div>
             
@@ -1282,6 +1461,13 @@
                     </div>
                     <button class="download-btn" onclick="downloadBook('french-modern')"><i class="fas fa-download"></i> تحميل</button>
                 </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الإنجليزية</div>
+                        <div class="book-type">المعاصر</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('english-modern')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
             </div>
         </section>
 
@@ -1313,6 +1499,29 @@
                     </div>
                     <button class="download-btn" onclick="downloadBook('english-gem')"><i class="fas fa-download"></i> تحميل</button>
                 </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب التفوق علوم متكاملة</div>
+                        <div class="book-type">التفوق</div>
+                    </div>
+                    <button class="download-btn" onclick="downloadBook('excellence-science')"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- قسم جديد: أحدث الإضافات -->
+        <section class="section card-3d">
+            <h2 class="section-title">🆕 أحدث الإضافات</h2>
+            <div class="neon-card">
+                <h3 class="neon-title" style="font-size: 1.1rem; margin-bottom: 10px;">تم تحديث الموقع!</h3>
+                <p>تم إضافة المزيد من الكتب الخارجية وتحسين أداء الموقع:</p>
+                <ul style="margin: 10px 0; padding-right: 20px;">
+                    <li>إضافة كتاب المعاصر انجليزي</li>
+                    <li>إضافة كتاب التفوق علوم متكاملة</li>
+                    <li>تحديث رابط كتاب الدين المسيحي</li>
+                    <li>تحسين سرعة الموقع وتجربة المستخدم</li>
+                    <li>إضافة تأثيرات نيون جديدة</li>
+                </ul>
             </div>
         </section>
 
@@ -1395,7 +1604,7 @@
             'german': 'https://www.mediafire.com/file/3rlvvxmlyqj4mez/Deutsch_language_Secondary1_TR1_W1.pdf/file',  
             'programming': 'https://www.mediafire.com/file/vg2wsoky8ssuoz8/ICT_Ar_Sec1_T1.pdf/file',  
             'islamic': 'https://www.mediafire.com/file/1ktp2y8k1jevbl7/Islamic_Religious_Education_Sec1_Tr1.pdf/file',  
-            'christian': 'https://www.mediafire.com/file/cnj5vki5j7agaon/Christian_Religious_Education_Sec1_Tr1.pdf/file',
+            'christian': 'https://www.mediafire.com/file/me8yw4qgw1eyywk/Christian_1sec_t1%25282%2529.pdf/file',
             'arabic-exam': 'https://www.mediafire.com/file/3cjuxxgli1jzbba/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'history-exam': 'https://www.mediafire.com/file/t3ktnf71dxuhj78/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'philosophy-exam': 'https://www.mediafire.com/file/rds7dvmesvsjun5/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2581%25D9%2584%25D8%25B3%25D9%2581%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A-2.pdf/file',
@@ -1405,10 +1614,12 @@
             'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+            'english-modern': 'https://www.mediafire.com/file/fmt2zg8b4p1xc2r/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
             'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
             'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
-            'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file'
+            'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file',
+            'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file'
         };
 
         function downloadBook(bookId) {
@@ -1519,6 +1730,15 @@
                 }, 400);
             }, 4000);
         }
+
+        // شريط التقدم
+        window.addEventListener('scroll', function() {
+            const winHeight = window.innerHeight;
+            const docHeight = document.documentElement.scrollHeight;
+            const scrollTop = window.pageYOffset;
+            const scrollPercent = (scrollTop / (docHeight - winHeight)) * 100;
+            document.getElementById('progressBar').style.width = scrollPercent + '%';
+        });
 
         document.addEventListener('mousemove', function(e) {
             const floatingElements = document.querySelectorAll('.floating-element');
