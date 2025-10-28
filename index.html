@@ -21,6 +21,7 @@
             --neon-green: #39ff14;
             --neon-yellow: #ffff00;
             --gold: #ffd700;
+            --book-red: #ff5252;
         }
 
         * {
@@ -480,12 +481,12 @@
 
         .book-type {
             font-size: 0.7rem;
-            color: var(--accent);
-            background: rgba(255, 64, 129, 0.15);
+            color: var(--book-red);
+            background: rgba(255, 82, 82, 0.15);
             padding: 3px 6px;
             border-radius: 8px;
             display: inline-block;
-            box-shadow: 0 0 4px rgba(255, 64, 129, 0.3);
+            box-shadow: 0 0 4px rgba(255, 82, 82, 0.3);
         }
 
         .download-btn {
@@ -1445,7 +1446,7 @@
 
     <div class="overlay" id="welcomeOverlay"></div>
     <div class="welcome-notification" id="welcomeNotification">
-        <button class="welcome-close" onclick="closeWelcome()">
+        <button class="welcome-close" id="welcomeClose">
             <i class="fas fa-times"></i>
         </button>
         <div class="welcome-icon">👑</div>
@@ -1456,7 +1457,7 @@
 
     <div class="overlay" id="supervisorOverlay"></div>
     <div class="supervisor-notification" id="supervisorNotification">
-        <button class="supervisor-close" onclick="closeSupervisor()">
+        <button class="supervisor-close" id="supervisorClose">
             <i class="fas fa-times"></i>
         </button>
         <div class="supervisor-icon">🏫</div>
@@ -1520,66 +1521,77 @@
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة العربية</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="arabic"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الأجنبية الأولى</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="english"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب الرياضيات</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="math"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التاريخ</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="history"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب الفلسفة والمنطق</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="philosophy"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب العلوم المتكاملة</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="science"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الثانية فرنساوي</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="french"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب اللغة الثانية الماني</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="german"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب البرمجة والذكاء الاصطناعي</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="programming"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التربية الدينية الإسلامية</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="islamic"><i class="fas fa-download"></i> تحميل</button>
                 </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التربية الدينية المسيحية</div>
+                        <div class="book-type">مدرسية</div>
                     </div>
                     <button class="download-btn" data-book="christian"><i class="fas fa-download"></i> تحميل</button>
                 </div>
@@ -1675,26 +1687,8 @@
         </section>
 
         <section class="section card-3d">
-            <h2 class="section-title">كتب خارجية أخرى</h2>
+            <h2 class="section-title">كتب خارجية (جيم)</h2>
             <div class="book-grid">
-                <div class="book-item">
-                    <div class="book-info">
-                        <div class="book-name">كتاب اللغة الثانية الماني جلوبال</div>
-                    </div>
-                    <button class="download-btn" data-book="german-global"><i class="fas fa-download"></i> تحميل</button>
-                </div>
-                <div class="book-item">
-                    <div class="book-info">
-                        <div class="book-name">كتاب اللغة الثانية فرنساوي براڤو</div>
-                    </div>
-                    <button class="download-btn" data-book="french-bravo"><i class="fas fa-download"></i> تحميل</button>
-                </div>
-                <div class="book-item">
-                    <div class="book-info">
-                        <div class="book-name">كتاب اللغة الثانية الماني هالو ديوتش</div>
-                    </div>
-                    <button class="download-btn" data-book="german-hallo"><i class="fas fa-download"></i> تحميل</button>
-                </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب GEM للغة الإنجليزية</div>
@@ -1702,19 +1696,59 @@
                     </div>
                     <button class="download-btn" data-book="english-gem"><i class="fas fa-download"></i> تحميل</button>
                 </div>
+            </div>
+        </section>
+
+        <section class="section card-3d">
+            <h2 class="section-title">كتب محمد صلاح</h2>
+            <div class="book-grid">
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب الشرح محمد صلاح للغة عربية</div>
+                        <div class="book-type">محمد صلاح</div>
+                    </div>
+                    <button class="download-btn" data-book="mohamed-salah"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب الأسئلة محمد صلاح للغة عربية</div>
+                        <div class="book-type">محمد صلاح</div>
+                    </div>
+                    <button class="download-btn" data-book="mohamed-salah-questions"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="section card-3d">
+            <h2 class="section-title">كتب خارجية أخرى</h2>
+            <div class="book-grid">
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية الماني جلوبال</div>
+                        <div class="book-type">جلوبال</div>
+                    </div>
+                    <button class="download-btn" data-book="german-global"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية فرنساوي براڤو</div>
+                        <div class="book-type">براڤو</div>
+                    </div>
+                    <button class="download-btn" data-book="french-bravo"><i class="fas fa-download"></i> تحميل</button>
+                </div>
+                <div class="book-item">
+                    <div class="book-info">
+                        <div class="book-name">كتاب اللغة الثانية الماني هالو ديوتش</div>
+                        <div class="book-type">هالو ديوتش</div>
+                    </div>
+                    <button class="download-btn" data-book="german-hallo"><i class="fas fa-download"></i> تحميل</button>
+                </div>
                 <div class="book-item">
                     <div class="book-info">
                         <div class="book-name">كتاب التفوق علوم متكاملة</div>
                         <div class="book-type">التفوق</div>
                     </div>
                     <button class="download-btn" data-book="excellence-science"><i class="fas fa-download"></i> تحميل</button>
-                </div>
-                <div class="book-item">
-                    <div class="book-info">
-                        <div class="book-name">كتاب محمد صلاح للغة عربية</div>
-                        <div class="book-type">محمد صلاح</div>
-                    </div>
-                    <button class="download-btn" data-book="mohamed-salah"><i class="fas fa-download"></i> تحميل</button>
                 </div>
             </div>
         </section>
@@ -1766,15 +1800,6 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            setTimeout(function() {
-                document.querySelector('.loading').classList.add('hidden');
-                
-                setTimeout(function() {
-                    document.getElementById('welcomeOverlay').classList.add('active');
-                    document.getElementById('welcomeNotification').classList.add('active');
-                }, 500);
-            }, 2000);
-
             const bookUrls = {  
                 'arabic': 'https://www.mediafire.com/file/poqp5qsjyvaysso/arabic_1sec_t1.pdf/file',  
                 'english': 'https://www.mediafire.com/file/eh6x13z1qv7pqmb/English_1sec_t1.pdf/file',  
@@ -1790,19 +1815,20 @@
                 'arabic-exam': 'https://www.mediafire.com/file/3cjuxxgli1jzbba/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
                 'history-exam': 'https://www.mediafire.com/file/t3ktnf71dxuhj78/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
                 'philosophy-exam': 'https://www.mediafire.com/file/rds7dvmesvsjun5/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2581%25D9%2584%25D8%25B3%25D9%2581%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A-2.pdf/file',
-                'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25A7%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+                'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
                 'arabic-lights': 'https://www.mediafire.com/file/ckqfwkc0rbskd21/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%2580%25D8%25A8%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
                 'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-                'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A8-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
                 'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
                 'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
                 'english-modern': 'https://www.mediafire.com/file/fmt2zg8b4p1xc2r/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-                'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file',
+                'mohamed-salah': 'https://www.mediafire.com/file/1ajh1h7sbz0iauw/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25B4%25D8%25B1%25D8%25AD_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2584_2026.pdf/file',
+                'mohamed-salah-questions': 'https://www.mediafire.com/file/4i1vp6r8ntsmexa/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25AA%25D8%25AF%25D8%25B1%25D9%258A%25D8%25A8%25D8%25A7%25D8%25AA_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2584_2026.pdf/file',
+                'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file',
                 'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
                 'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
-                'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file',
-                'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-                'mohamed-salah': 'https://www.mediafire.com/file/1ajh1h7sbz0iauw/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25B4%25D8%25B1%25D8%25AD_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2584_2026.pdf/file'
+                'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25A7%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file'
             };
 
             document.querySelectorAll('.download-btn').forEach(button => {
@@ -1840,6 +1866,26 @@
             document.getElementById('supervisorBtn').addEventListener('click', function() {
                 document.getElementById('supervisorOverlay').classList.add('active');
                 document.getElementById('supervisorNotification').classList.add('active');
+            });
+
+            document.getElementById('welcomeClose').addEventListener('click', function() {
+                document.getElementById('welcomeOverlay').classList.remove('active');
+                document.getElementById('welcomeNotification').classList.remove('active');
+            });
+
+            document.getElementById('supervisorClose').addEventListener('click', function() {
+                document.getElementById('supervisorOverlay').classList.remove('active');
+                document.getElementById('supervisorNotification').classList.remove('active');
+            });
+
+            document.getElementById('welcomeOverlay').addEventListener('click', function() {
+                document.getElementById('welcomeOverlay').classList.remove('active');
+                document.getElementById('welcomeNotification').classList.remove('active');
+            });
+
+            document.getElementById('supervisorOverlay').addEventListener('click', function() {
+                document.getElementById('supervisorOverlay').classList.remove('active');
+                document.getElementById('supervisorNotification').classList.remove('active');
             });
 
             const telegramBotToken = '7143459580:AAG81E34PXKvD0mZULQfTMN9DFkg4HnfDo8';
@@ -1964,20 +2010,16 @@
                 section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
                 observer.observe(section);
             });
+
+            setTimeout(function() {
+                document.querySelector('.loading').classList.add('hidden');
+                
+                setTimeout(function() {
+                    document.getElementById('welcomeOverlay').classList.add('active');
+                    document.getElementById('welcomeNotification').classList.add('active');
+                }, 500);
+            }, 2000);
         });
-
-        function closeWelcome() {
-            document.getElementById('welcomeOverlay').classList.remove('active');
-            document.getElementById('welcomeNotification').classList.remove('active');
-        }
-
-        function closeSupervisor() {
-            document.getElementById('supervisorOverlay').classList.remove('active');
-            document.getElementById('supervisorNotification').classList.remove('active');
-        }
-
-        document.getElementById('welcomeOverlay').addEventListener('click', closeWelcome);
-        document.getElementById('supervisorOverlay').addEventListener('click', closeSupervisor);
     </script>
 </body>
     </html>
