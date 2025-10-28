@@ -37,9 +37,8 @@
         body {
             background: linear-gradient(135deg, rgba(10, 14, 42, 0.98) 0%, rgba(30, 41, 59, 0.98) 100%), 
                         radial-gradient(circle at 20% 80%, rgba(74, 30, 106, 0.4) 0%, transparent 50%),
-                        radial-gradient(circle at 80% 20%, rgba(0, 176, 255, 0.3) 0%, transparent 50%),
-                        url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><rect width="100" height="100" fill="%230a0e2a"/><circle cx="20" cy="20" r="1" fill="%23ffffff" opacity="0.7"/><circle cx="50" cy="80" r="1" fill="%23ffffff" opacity="0.5"/><circle cx="80" cy="40" r="1" fill="%23ffffff" opacity="0.8"/><circle cx="10" cy="60" r="1" fill="%23ffffff" opacity="0.6"/><circle cx="70" cy="10" r="1" fill="%23ffffff" opacity="0.9"/></svg>');
-            background-size: cover, cover, cover, 200px;
+                        radial-gradient(circle at 80% 20%, rgba(0, 176, 255, 0.3) 0%, transparent 50%);
+            background-size: cover, cover, cover;
             background-attachment: fixed;
             background-position: center;
             color: var(--light);
@@ -514,6 +513,7 @@
             z-index: 1;
             min-width: 80px;
             justify-content: center;
+            user-select: none;
         }
 
         .download-btn::before {
@@ -630,6 +630,7 @@
             box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
             position: relative;
             overflow: hidden;
+            user-select: none;
         }
 
         .link-btn::before {
@@ -732,6 +733,7 @@
             justify-content: center;
             gap: 8px;
             margin-top: 10px;
+            user-select: none;
         }
 
         .submit-btn:hover {
@@ -925,6 +927,7 @@
             cursor: pointer;
             transition: var(--transition);
             font-size: 1rem;
+            user-select: none;
         }
 
         .welcome-close:hover {
@@ -1006,6 +1009,7 @@
             gap: 6px;
             cursor: pointer;
             transition: var(--transition);
+            user-select: none;
         }
 
         .corner-badge:hover {
@@ -1330,6 +1334,7 @@
             cursor: pointer;
             transition: var(--transition);
             font-size: 1rem;
+            user-select: none;
         }
 
         .supervisor-close:hover {
@@ -1456,6 +1461,7 @@
             z-index: 10;
             animation: tech-pulse 2s infinite;
             cursor: pointer;
+            user-select: none;
         }
 
         @keyframes tech-pulse {
@@ -1499,6 +1505,120 @@
             font-size: 0.8rem;
             margin-top: 5px;
             color: rgba(255, 255, 255, 0.8);
+        }
+
+        .features-section {
+            background: linear-gradient(135deg, rgba(255, 64, 129, 0.1) 0%, rgba(191, 0, 255, 0.1) 100%);
+            padding: 15px;
+            border-radius: 15px;
+            margin: 25px 0;
+            box-shadow: 0 6px 25px rgba(0, 0, 0, 0.3);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 15px;
+            margin-top: 15px;
+        }
+
+        .feature-item {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 15px;
+            border-radius: 10px;
+            text-align: center;
+            transition: var(--transition);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.3), 0 0 10px rgba(255, 64, 129, 0.4);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            color: var(--accent);
+            text-shadow: 0 0 10px rgba(255, 64, 129, 0.5);
+        }
+
+        .feature-title {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+            color: var(--light);
+        }
+
+        .feature-desc {
+            font-size: 0.85rem;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        .search-container {
+            margin: 20px 0;
+            position: relative;
+        }
+
+        .search-input {
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 12px 20px;
+            color: white;
+            font-size: 0.95rem;
+            transition: var(--transition);
+            backdrop-filter: blur(5px);
+            padding-left: 50px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--secondary);
+            box-shadow: 0 0 15px rgba(0, 176, 255, 0.5);
+        }
+
+        .search-icon {
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            color: rgba(255, 255, 255, 0.7);
+            font-size: 1.2rem;
+        }
+
+        .back-to-top {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary), var(--accent));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4), 0 0 10px rgba(0, 176, 255, 0.5);
+            cursor: pointer;
+            transition: var(--transition);
+            z-index: 100;
+            opacity: 0;
+            visibility: hidden;
+            user-select: none;
+        }
+
+        .back-to-top.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .back-to-top:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5), 0 0 15px rgba(0, 176, 255, 0.7);
         }
 
         @media (min-width: 480px) {
@@ -1636,6 +1756,10 @@
         <i class="fas fa-graduation-cap"></i>
     </div>
 
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
     <div class="tech-pulse" id="techPulse">
         <i class="fas fa-bolt"></i>
     </div>
@@ -1726,15 +1850,56 @@
                     <div class="stat-label">كتاب متاح</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" id="studentsCount">0</div>
-                    <div class="stat-label">طالب مستفيد</div>
+                    <div class="stat-number" id="lastUpdate">0</div>
+                    <div class="stat-label">يوم منذ آخر تحديث</div>
                 </div>
                 <div class="stat-item">
-                    <div class="stat-number" id="downloadsCount">0</div>
-                    <div class="stat-label">تحميل حتى الآن</div>
+                    <div class="stat-number" id="featuresCount">0</div>
+                    <div class="stat-label">ميزة جديدة</div>
                 </div>
             </div>
         </section>
+
+        <section class="section card-3d features-section">
+            <h2 class="section-title">مميزات الموقع</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-download"></i>
+                    </div>
+                    <h3 class="feature-title">تحميل سريع</h3>
+                    <p class="feature-desc">تحميل الكتب بضغطة زر واحدة بدون تعقيد</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3 class="feature-title">متوافق مع جميع الأجهزة</h3>
+                    <p class="feature-desc">يعمل على الهواتف والأجهزة اللوحية وأجهزة الكمبيوتر</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-sync"></i>
+                    </div>
+                    <h3 class="feature-title">تحديثات مستمرة</h3>
+                    <p class="feature-desc">إضافة كتب جديدة وتحسينات مستمرة</p>
+                </div>
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <i class="fas fa-shield-alt"></i>
+                    </div>
+                    <h3 class="feature-title">روابط آمنة</h3>
+                    <p class="feature-desc">جميع الروابط آمنة ومؤكدة من المطور</p>
+                </div>
+            </div>
+        </section>
+
+        <div class="search-container">
+            <input type="text" class="search-input" id="searchInput" placeholder="ابحث عن كتاب...">
+            <div class="search-icon">
+                <i class="fas fa-search"></i>
+            </div>
+        </div>
 
         <section class="section card-3d">
             <h2 class="section-title">الكتب المدرسية</h2>
@@ -2056,15 +2221,53 @@
                 spaceStars.appendChild(star);
             }
 
+            // إعداد الكوكيز
+            function setCookie(name, value, days) {
+                const expires = new Date();
+                expires.setTime(expires.getTime() + (days * 24 * 60 * 60 * 1000));
+                document.cookie = name + '=' + value + ';expires=' + expires.toUTCString() + ';path=/';
+            }
+
+            function getCookie(name) {
+                const nameEQ = name + '=';
+                const ca = document.cookie.split(';');
+                for (let i = 0; i < ca.length; i++) {
+                    let c = ca[i];
+                    while (c.charAt(0) === ' ') c = c.substring(1, c.length);
+                    if (c.indexOf(nameEQ) === 0) return c.substring(nameEQ.length, c.length);
+                }
+                return null;
+            }
+
+            // تحميل البيانات المحفوظة
+            function loadSavedData() {
+                const savedName = getCookie('userName');
+                if (savedName) {
+                    document.getElementById('userName').value = savedName;
+                }
+                
+                const visitCount = parseInt(getCookie('visitCount')) || 0;
+                setCookie('visitCount', visitCount + 1, 365);
+                
+                const lastVisit = getCookie('lastVisit');
+                const now = new Date();
+                if (lastVisit) {
+                    const lastVisitDate = new Date(parseInt(lastVisit));
+                    const daysSinceLastVisit = Math.floor((now - lastVisitDate) / (1000 * 60 * 60 * 24));
+                    document.getElementById('lastUpdate').textContent = daysSinceLastVisit;
+                } else {
+                    document.getElementById('lastUpdate').textContent = 0;
+                }
+                setCookie('lastVisit', now.getTime(), 365);
+            }
+
             // تحديث الإحصائيات
             function updateStats() {
                 const booksCount = document.querySelectorAll('.download-btn').length;
-                const studentsCount = Math.floor(Math.random() * 1000) + 500;
-                const downloadsCount = Math.floor(Math.random() * 5000) + 2000;
+                const featuresCount = document.querySelectorAll('.feature-item').length;
                 
                 animateCounter('booksCount', booksCount);
-                animateCounter('studentsCount', studentsCount);
-                animateCounter('downloadsCount', downloadsCount);
+                animateCounter('featuresCount', featuresCount);
             }
             
             function animateCounter(elementId, targetValue) {
@@ -2081,6 +2284,38 @@
                 }, 20);
             }
             
+            // البحث عن الكتب
+            document.getElementById('searchInput').addEventListener('input', function() {
+                const searchTerm = this.value.toLowerCase();
+                const bookItems = document.querySelectorAll('.book-item');
+                
+                bookItems.forEach(item => {
+                    const bookName = item.querySelector('.book-name').textContent.toLowerCase();
+                    if (bookName.includes(searchTerm)) {
+                        item.style.display = 'flex';
+                    } else {
+                        item.style.display = 'none';
+                    }
+                });
+            });
+
+            // زر العودة للأعلى
+            const backToTop = document.getElementById('backToTop');
+            window.addEventListener('scroll', function() {
+                if (window.pageYOffset > 300) {
+                    backToTop.classList.add('active');
+                } else {
+                    backToTop.classList.remove('active');
+                }
+            });
+
+            backToTop.addEventListener('click', function() {
+                window.scrollTo({
+                    top: 0,
+                    behavior: 'smooth'
+                });
+            });
+
             // روابط الكتب
             const bookUrls = {  
                 'arabic': 'https://www.mediafire.com/file/poqp5qsjyvaysso/arabic_1sec_t1.pdf/file',  
@@ -2101,19 +2336,19 @@
                 'philosophy-exam': 'https://www.mediafire.com/file/rds7dvmesvsjun5/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D9%2581%25D9%2584%25D8%25B3%25D9%2581%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A-2.pdf/file',
                 'science-exam': 'https://www.mediafire.com/file/65ygib3a7xtsldr/%25D8%25A7%25D9%2584%25D8%25A7%25D9%2585%25D8%25AA%25D8%25AD%25D8%25A7%25D9%2586_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
                 'arabic-lights': 'https://www.mediafire.com/file/ckqfwkc0rbskd21/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25B9%25D8%25B1%25D8%25A8%25D9%2580%25D8%25A8%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-                'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+                'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%2580%25D9%258A.pdf/file',
                 'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
-                'islamic-lights': 'https://www.mediafire.com/file/hufldza9yjk523k/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AF%25D9%258A%25D9%2586_%25D8%25A7%25D8%25B3%25D9%2584%25D8%25A7%25D9%2585%25D9%258A_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'islamic-lights': 'https://www.mediafire.com/file/hufldza9yjk523k/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AF%25D9%258A%25D9%2586_%25D8%25A7%25D8%25B3%25D9%2584%25D8%25A7%25D9%2585%25D9%258A_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
                 'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
                 'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file',
                 'english-modern': 'https://www.mediafire.com/file/fmt2zg8b4p1xc2r/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-                'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A%25282%2529.pdf/file',
+                'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A%25282%2529.pdf/file',
                 'mohamed-salah': 'https://www.mediafire.com/file/1ajh1h7sbz0iauw/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25B4%25D8%25B1%25D8%25AD_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2588%25D9%2584_2026.pdf/file',
                 'mohamed-salah-questions': 'https://www.mediafire.com/file/4i1vp6r8ntsmexa/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25AA%25D8%25AF%25D8%25B1%25D9%258A%25D8%25A8%25D8%25A7%25D8%25AA_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2588%25D9%2584_2026.pdf/file',
                 'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file',
-                'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
+                'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%2580%25D9%258A.pdf/file',
                 'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
-                'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25A7%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file'
+                'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25A7%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%2580%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file'
             };
 
             // تحسين أزرار التحميل
@@ -2134,11 +2369,6 @@
                             window.open(url, '_blank');
                             this.innerHTML = originalText;
                             this.disabled = false;
-                            
-                            // تحديث عدد التحميلات
-                            const downloadsElement = document.getElementById('downloadsCount');
-                            let currentDownloads = parseInt(downloadsElement.textContent);
-                            downloadsElement.textContent = currentDownloads + 1;
                             
                             showNotification("تم بدء التحميل بنجاح! 📚");
                         }, 800);
@@ -2198,11 +2428,15 @@
                 const bookName = document.getElementById('bookName').value;
                 const message = document.getElementById('message').value;
                 
+                // حفظ الاسم في الكوكيز
+                setCookie('userName', userName, 30);
+                
                 sendToTelegram(userName, bookName, message);
                 
                 showNotification("شكراً! 🙏 تم إرسال رسالتك للمطور: محمد أبو السعود");
                 
-                document.getElementById('contactForm').reset();
+                document.getElementById('bookName').value = '';
+                document.getElementById('message').value = '';
             });
 
             function sendToTelegram(userName, bookName, message) {
@@ -2313,6 +2547,7 @@
 
             setTimeout(function() {
                 document.querySelector('.loading').classList.add('hidden');
+                loadSavedData();
                 updateStats();
                 
                 setTimeout(function() {
