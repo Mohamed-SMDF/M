@@ -1756,8 +1756,6 @@
         <span id="ipAddress"></span>
     </div>
 
-    <div class="header-logo"></div>
-
     <div class="free-badge" id="freeBadge">
         🎉 مجاني مجاني 🎉
     </div>
@@ -1828,7 +1826,7 @@
         </div>
     </header>
 
-       <main class="container">
+    <main class="container">
         <section class="section card-3d developer-section">
             <h2 class="developer-title">معلومات المطور</h2>
             <div class="developer-info">
@@ -2238,7 +2236,6 @@
                     statusText.textContent = 'متصل';
                     
                     try {
-                        // الحصول على عنوان IP
                         const response = await fetch('https://api.ipify.org?format=json');
                         const data = await response.json();
                         ipAddress.textContent = `IP: ${data.ip}`;
@@ -2255,7 +2252,6 @@
                 }
             }
 
-            // تحديث حالة الاتصال عند التحميل وعند التغير
             updateConnectionStatus();
             window.addEventListener('online', updateConnectionStatus);
             window.addEventListener('offline', updateConnectionStatus);
@@ -2266,16 +2262,13 @@
             const allBookItems = document.querySelectorAll('.book-item');
             const allDownloadButtons = document.querySelectorAll('.download-btn');
 
-            // إنشاء خريطة للكتب وأزرار التحميل
             const booksMap = new Map();
             allBookItems.forEach(item => {
                 const bookName = item.querySelector('.book-name').textContent;
                 booksMap.set(bookName, item);
             });
 
-            // دالة للبحث باللغة العربية فقط
             function searchBooks(searchTerm) {
-                // التحقق من أن البحث باللغة العربية فقط
                 const arabicRegex = /^[\u0600-\u06FF\s]+$/;
                 if (!arabicRegex.test(searchTerm) && searchTerm !== '') {
                     showNotification('يرجى استخدام اللغة العربية فقط في البحث');
@@ -2284,7 +2277,6 @@
 
                 const results = [];
                 booksMap.forEach((item, bookName) => {
-                    // البحث بأحرف متشابهة (تقريبية)
                     if (isSimilar(bookName, searchTerm)) {
                         results.push({
                             name: bookName,
@@ -2295,19 +2287,15 @@
                 return results;
             }
 
-            // دالة للمقارنة التقريبية للنص العربي
             function isSimilar(text, searchTerm) {
                 if (searchTerm === '') return false;
                 
-                // إزالة التشكيل والمسافات الزائدة
                 const cleanText = text.replace(/[\u064B-\u065F]/g, '').replace(/\s+/g, ' ').trim();
                 const cleanSearch = searchTerm.replace(/[\u064B-\u065F]/g, '').replace(/\s+/g, ' ').trim();
                 
-                // البحث عن تطابق جزئي
                 return cleanText.includes(cleanSearch);
             }
 
-            // عرض نتائج البحث
             function displaySearchResults(results) {
                 searchResults.innerHTML = '';
                 
@@ -2318,7 +2306,6 @@
                         const resultElement = document.createElement('div');
                         resultElement.className = 'search-result-item';
                         
-                        // نسخ زر التحميل من العنصر الأصلي
                         const downloadBtn = result.element.querySelector('.download-btn').cloneNode(true);
                         
                         resultElement.innerHTML = `
@@ -2329,7 +2316,6 @@
                         resultElement.querySelector('.book-info').appendChild(downloadBtn);
                         
                         resultElement.addEventListener('click', function() {
-                            // إخفاء نتائج البحث عند الاختيار
                             searchResults.style.display = 'none';
                         });
                         
@@ -2340,7 +2326,6 @@
                 searchResults.style.display = 'block';
             }
 
-            // إضافة مستمع حدث للبحث
             searchInput.addEventListener('input', function() {
                 const searchTerm = this.value.trim();
                 
@@ -2353,7 +2338,6 @@
                 displaySearchResults(results);
             });
 
-            // إخفاء نتائج البحث عند النقر خارجها
             document.addEventListener('click', function(e) {
                 if (!searchInput.contains(e.target) && !searchResults.contains(e.target)) {
                     searchResults.style.display = 'none';
@@ -2368,7 +2352,6 @@
                 showNotification('🎉 الموقع مجاني بالكامل! استمتع بالتجربة 🎉');
             });
 
-            // دالة لإنشاء تأثير الاحتفال
             function createConfetti() {
                 const colors = ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'];
                 const confettiCount = 100;
@@ -2382,7 +2365,6 @@
                     confetti.style.transform = `rotate(${Math.random() * 360}deg)`;
                     document.body.appendChild(confetti);
                     
-                    // تحريك القطعة
                     const animation = confetti.animate([
                         { 
                             transform: `translate(0, 0) rotate(0deg)`,
@@ -2489,16 +2471,16 @@
                 'history-lights': 'https://www.mediafire.com/file/jpu5ylbtr36oel1/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AA%25D8%25A7%25D8%25B1%25D9%258A%25D8%25AE_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%2580%25D9%258A.pdf/file',
                 'science-lights': 'https://www.mediafire.com/file/7ki5omm0rn0fmoo/%25D8%25A7%25D9%2584%25D8%25A7%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1-_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25A7%25D8%25AA_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
                 'islamic-lights': 'https://www.mediafire.com/file/hufldza9yjk523k/%25D8%25A7%25D9%2584%25D8%25A3%25D8%25B6%25D9%2588%25D8%25A7%25D8%25A1_-_%25D8%25AF%25D9%258A%25D9%2586_%25D8%25A7%25D8%25B3%25D9%2584%25D8%25A7%25D9%2585%25D9%258A_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
-                'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258A.pdf/file',
+                'math-modern': 'https://www.mediafire.com/file/s8bia8so5xrs2lw/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D8%25B1%25D9%258A%25D8%25A7%25D8%25B6%25D9%258A%25D8%25A7%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
                 'french-modern': 'https://www.mediafire.com/file/f99omndnbfvfu5d/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file',
                 'english-modern': 'https://www.mediafire.com/file/fmt2zg8b4p1xc2r/%25D8%25A7%25D9%2584%25D9%2585%25D8%25B9%25D8%25A7%25D8%25B5%25D8%25B1_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_%25D8%25AA%25D8%25B1%25D9%2585_1_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A.pdf/file',
                 'english-gem': 'https://www.mediafire.com/file/e9jtfnlzrd7vlxu/%25D8%25AC%25D9%258A%25D9%2585_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2586%25D8%25AC%25D9%2584%25D9%258A%25D8%25B2%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%258A%25282%2529.pdf/file',
                 'mohamed-salah': 'https://www.mediafire.com/file/1ajh1h7sbz0iauw/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25B4%25D8%25B1%25D8%25AD_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2588%25D9%2584_2026.pdf/file',
-                'mohamed-salah-questions': 'https://www.mediafire.com/file/4i1vp6r8ntsmexa/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25AA%25D8%25AF%25D8%25B1%25D9%258A%25D8%25A8%25D8%25A7%25D8%25AA_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2588%25D9%2584_2026.pdf/file',
+                'mohamed-salah-questions': 'https://www.mediafire.com/file/4i1vp6r8ntsmexa/%25D9%2585%25D8%25AD%25D9%2585%25D8%25AF_%25D8%25B5%25D9%2584%25D8%25A7%25D8%25AD_1%25D8%25AB_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D8%25A7%25D9%2584%25D8%25AA%25D8%25AF%25D8%25B1%25D9%258A%25D8%25A8%25D8%25A7%25D8%25A7%25D8%25AA_%25D8%25AA%25D8%25B1%25D9%2585_%25D8%25A7%25D9%2588%25D9%2588%25D9%2584_2026.pdf/file',
                 'german-global': 'https://www.mediafire.com/file/le37baepdc6ri5h/%25D8%25AC%25D9%2584%25D9%2588%25D8%25A8%25D8%25A7%25D9%2584_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A%25D8%25A7%25D8%25AA_-_1_%25D8%25A7%25D8%25B9%25D8%25AF%25D8%25A7%25D8%25AF%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file',
                 'french-bravo': 'https://www.mediafire.com/file/b7d1l41sa7iwasf/%25D8%25A8%25D8%25B1%25D8%25A7%25D9%2581%25D9%2588_-_%25D9%2584%25D8%25BA%25D8%25A9_%25D9%2581%25D8%25B1%25D9%2586%25D8%25B3%25D9%258A%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%2580%25D9%2580%25D9%258A.pdf/file',
-                'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%2583%25D8%25AA%25D8%25A7%25D8%25A8_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
-                'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25A7%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%2580%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file'
+                'german-hallo': 'https://www.mediafire.com/file/ovawh6m39iwqza4/%25D8%25A7%25D9%2584%25D9%2585%25D8%25A7%25D9%2586%25D9%258A_%25D9%258A%25D8%25A9_%25D9%2587%25D8%25A7%25D9%2584%25D9%2588_%25D8%25AF%25D9%258A%25D9%2588%25D8%25AA%25D8%25B4.pdf/file',
+                'excellence-science': 'https://www.mediafire.com/file/pnwrcoacgdi1fbi/%25D8%25A7%25D9%2584%25D8%25AA%25D9%2581%25D9%2588%25D9%2582_-_%25D8%25B9%25D9%2584%25D9%2588%25D9%2585_%25D9%2585%25D8%25AA%25D9%2583%25D8%25A7%25D9%2585%25D9%2584%25D8%25A9_-_1_%25D8%25AB%25D8%25A7%25D9%2586%25D9%2588%25D9%2580%25D9%258A_-_%25D8%25AA%25D8%25B1%25D9%2585_1_-_%25D8%25B0%25D8%25A7%25D9%2583%25D8%25B1%25D9%2588%25D9%2584%25D9%258I.pdf/file'
             };
 
             // === تحسين أزرار التحميل ===
@@ -2597,7 +2579,6 @@
                 const bookName = document.getElementById('bookName').value;
                 const message = document.getElementById('message').value;
                 
-                // حفظ الاسم في الكوكيز
                 setCookie('userName', userName, 30);
                 
                 sendToTelegram(userName, bookName, message);
